@@ -9,6 +9,23 @@ import { FAQSection } from "@/components/faq-section";
 import { SiteFooter } from "@/components/site-footer";
 import { useTheme } from "@/components/theme-provider";
 
+/*
+ * Sections that were already built and rendered nowhere.
+ *
+ * Twenty-eight components existed in src/components and App.tsx mounted eight.
+ * The rest were not experiments — pricing, the how-it-works walkthrough, the
+ * SEO/AEO/GEO explainer and the design-identity gallery were finished work that
+ * no visitor could reach. Bringing them in is most of this change; almost
+ * nothing new had to be written.
+ */
+import { HowItWorks } from "@/components/how-it-works";
+import { InfiniteMovingCardsDemo } from "@/components/infinite-moving-cards-demo";
+import { DesignIdentitySection } from "@/components/design-identity-section";
+import { DesignToDiscovery } from "@/components/design-to-discovery";
+import { DiscoverabilitySection } from "@/components/discoverability-section";
+import { PricingSection } from "@/components/pricing-section";
+import { SIGN_UP_URL } from "@/env";
+
 /* Ambient colour laid down the length of the page — blue, violet, cyan,
    indigo and rose, each soft enough to read as light rather than paint. */
 const AMBIENT_GLOWS = [
@@ -102,34 +119,109 @@ export function App() {
 
       {/* Main Sections */}
       <div className="relative z-10 w-full flex flex-col">
-        {/* Hero Section */}
+        {/*
+          Order follows the Trust & Authority + Conversion pattern, which is
+          what a buyer of institutional software actually reads in:
+          mission, then proof, then the mechanism, then the price, then their
+          objections, then one way to act.
+
+          The previous order put the cinematic frame sequence and a parallax
+          showcase before anything explaining what the product does, and never
+          reached a price at all — pricing-section existed and was mounted
+          nowhere. A visitor could scroll the entire page and not learn what it
+          cost or how it worked.
+        */}
+
+        {/* 1 — Hero: the claim */}
         <section id="hero" className="w-full">
           <HeroSection />
         </section>
 
-        {/* Compare / Transformation Studio */}
+        {/* 2 — Proof, before the explanation. Somebody deciding whether to keep
+               reading wants evidence, not a feature list. */}
+        <section id="proof" className="w-full">
+          <InfiniteMovingCardsDemo />
+        </section>
+
+        {/* 3 — Before and after. The single most legible claim on the page, and
+               a Trust & Authority staple: show the change, do not describe it. */}
         <section id="compare" className="w-full">
           <CompareDemo />
         </section>
 
-        {/* Hero Parallax Institution Showcase (Mentors / Showcase) */}
-        <section id="showcase" className="w-full">
-          <HeroParallaxDemo />
+        {/* 4 — The mechanism, in three steps. Was built and unreachable. */}
+        <section id="how-it-works" className="w-full">
+          <HowItWorks />
         </section>
 
-        {/* Features / Control - capabilities after the cinematic sequence */}
+        {/* 5 — What it can do */}
         <section id="features" className="w-full">
           <FeaturesControl />
         </section>
 
-        {/* 300-Frame Hardware Accelerated Image Sequence */}
+        {/* 6 — Design identity: the part an institution's committee argues
+               about, answered before they have to ask. */}
+        <section id="design" className="w-full">
+          <DesignIdentitySection />
+        </section>
+
+        {/* 7 — The bridge between looking good and being found */}
+        <section id="bridge" className="w-full">
+          <DesignToDiscovery />
+        </section>
+
+        {/* 8 — SEO, AEO and GEO. The strongest differentiator on the page and
+               it was rendering nowhere. */}
+        <section id="discoverability" className="w-full">
+          <DiscoverabilitySection />
+        </section>
+
+        {/* 9 — Showcase */}
+        <section id="showcase" className="w-full">
+          <HeroParallaxDemo />
+        </section>
+
+        {/* 10 — The frame sequence. Kept, and moved late: it is the most
+                expensive thing on the page and the least informative, so it
+                earns its place as a reward rather than a toll. */}
         <section id="experience" className="w-full">
           <ScrollSequenceSection />
         </section>
 
-        {/* Frequently Asked Questions (FAQ / Blogs) */}
+        {/* 11 — Price. Transparent pricing is itself a trust signal for
+                institutional buyers, and this section already existed. */}
+        <section id="pricing" className="w-full">
+          <PricingSection />
+        </section>
+
+        {/* 12 — Objections */}
         <section id="faq" className="w-full">
           <FAQSection />
+        </section>
+
+        {/* 13 — One clear way to act.
+                 The page had no closing call to action at all: it ended on an
+                 FAQ and then the footer, so a reader who was convinced by the
+                 last answer had nothing to press. */}
+        <section id="get-started" className="w-full px-6 py-24 sm:px-10">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+            <h2 className="font-['Plus_Jakarta_Sans',sans-serif] text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-slate-900 dark:text-white">
+              Your institution&rsquo;s website, live this week
+            </h2>
+            <p className="max-w-xl text-[1.0625rem] leading-relaxed text-slate-600 dark:text-slate-300">
+              Build it, publish it, connect your own domain. No developers to brief and
+              no hosting to manage.
+            </p>
+            <a
+              href={SIGN_UP_URL}
+              className="inline-flex items-center justify-center rounded-full bg-[#16A34A] px-10 py-4 text-[1.0625rem] font-semibold text-white no-underline shadow-[0_8px_24px_rgba(22,163,74,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#15803D] hover:shadow-[0_14px_32px_rgba(22,163,74,0.34)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#16A34A]/50 focus-visible:ring-offset-2"
+            >
+              Get started free
+            </a>
+            <p className="text-[0.9375rem] text-slate-500 dark:text-slate-400">
+              No credit card required.
+            </p>
+          </div>
         </section>
 
       </div>
