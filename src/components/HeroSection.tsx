@@ -1,6 +1,7 @@
 import React from "react";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { useTheme } from "@/components/theme-provider";
+import { SIGN_UP_URL } from "@/env";
 
 export function HeroSection() {
   const { resolved } = useTheme();
@@ -29,7 +30,7 @@ export function HeroSection() {
         </p>
 
         <a
-          href="#get-started"
+          href={SIGN_UP_URL}
           className="pointer-events-auto inline-flex items-center justify-center bg-black text-white dark:bg-white dark:text-slate-900 text-[1.15rem] sm:text-[1.25rem] font-medium px-11 py-5 rounded-full border border-black dark:border-white transition-all duration-300 hover:bg-[#1f1f1f] dark:hover:bg-slate-100 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.18)] shadow-[0_6px_20px_rgba(0,0,0,0.1)] cursor-pointer no-underline tracking-[-0.01em]"
         >
           Get Started

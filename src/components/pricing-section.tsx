@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check } from "lucide-react";
+import { SIGN_UP_URL } from "@/env";
 
 type Billing = "monthly" | "yearly";
 
@@ -215,7 +216,7 @@ export function PricingSection() {
 
               {/* CTA */}
               <a
-                href="#get-started"
+                href={SIGN_UP_URL}
                 className={`mt-8 inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-200 active:scale-[0.98] ${
                   plan.featured
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/25 hover:bg-blue-700 hover:shadow-lg"

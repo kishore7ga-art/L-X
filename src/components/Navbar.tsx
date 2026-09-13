@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button-group";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { SIGN_IN_URL, SIGN_UP_URL } from "@/env";
 
 interface NavItem {
   label: string;
@@ -122,9 +123,21 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
             <ThemeToggle />
 
+            {/*
+              The editor lives on its own host now. These used to be in-page
+              anchors — `#get-started`, which matches no element on this page —
+              back when the apex served the sign-in screen itself.
+            */}
+            <a
+              href={SIGN_IN_URL}
+              className="hidden text-[15px] font-medium tracking-[-0.01em] text-slate-500 transition-colors duration-200 hover:text-slate-900 dark:text-white/60 dark:hover:text-white sm:inline-flex"
+            >
+              Sign in
+            </a>
+
             <GradientButton
               variant="solid"
-              onClick={() => scrollToSection("faq")}
+              href={SIGN_UP_URL}
               className="hidden px-5 py-2.5 text-[15px] sm:inline-flex"
             >
               Get Started
@@ -165,9 +178,16 @@ export function Navbar() {
               );
             })}
 
+            <a
+              href={SIGN_IN_URL}
+              className="mt-1 flex w-full items-center rounded-xl px-3 py-3 text-[15px] font-medium text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-900 dark:text-white/60 dark:hover:bg-white/5 dark:hover:text-white sm:hidden"
+            >
+              Sign in
+            </a>
+
             <GradientButton
               variant="solid"
-              onClick={() => scrollToSection("faq")}
+              href={SIGN_UP_URL}
               className="mt-2 w-full py-3 text-[15px] sm:hidden"
             >
               Get Started

@@ -25,6 +25,16 @@ export interface GradientButtonProps
   variant?: "solid" | "outline" | "ghost" | "icon";
   size?: "sm" | "md";
   gradient?: Gradient;
+  /**
+   * Renders an `<a>` rather than a `<button>`, keeping every style identical.
+   *
+   * The alternative was `onClick={() => (window.location.href = ...)}`, which
+   * looks the same and is not a link: no middle-click, no "open in new tab", no
+   * status bar preview, and nothing for a crawler or a screen reader to call a
+   * destination. The landing page's two calls to action leave for the editor on
+   * another host, so they are links.
+   */
+  href?: string;
 }
 
 export const GradientButton = React.forwardRef<
@@ -38,10 +48,21 @@ export const GradientButton = React.forwardRef<
       gradient = DEFAULT_GRADIENT,
       className,
       children,
+      href,
       ...props
     },
     ref,
   ) => {
+    /**
+     * One element type, chosen once, used by all four variants.
+     *
+     * Typed loosely on purpose: React cannot narrow a runtime-chosen tag's
+     * props or its ref, and spelling that out precisely here would mean a
+     * second props type and a discriminated union for a component whose entire
+     * job is to look one particular way.
+     */
+    const Tag = (href ? "a" : "button") as React.ElementType;
+    const tagProps = href ? { href } : {};
     const pad =
       variant === "icon"
         ? "p-2"
@@ -67,23 +88,25 @@ export const GradientButton = React.forwardRef<
 
     if (variant === "solid") {
       return (
-        <button
+        <Tag
           ref={ref}
           className={cn(base, "text-white hover:-translate-y-[1px]")}
           style={{ backgroundImage: linear(gradient) }}
+          {...tagProps}
           {...props}
         >
           {sheen}
           <span className="relative flex items-center gap-1.5">{children}</span>
-        </button>
+        </Tag>
       );
     }
 
     if (variant === "outline" || variant === "icon") {
       return (
-        <button
+        <Tag
           ref={ref}
           className={cn(base, "bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:-translate-y-[1px]")}
+          {...tagProps}
           {...props}
         >
           <span
@@ -99,19 +122,20 @@ export const GradientButton = React.forwardRef<
             }}
           />
           <span className="relative flex items-center gap-1.5">{children}</span>
-        </button>
+        </Tag>
       );
     }
 
     /* ghost */
     return (
-      <button
+      <Tag
         ref={ref}
         className={cn(base, "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white")}
+        {...tagProps}
         {...props}
       >
         <span className="relative flex items-center gap-1.5">{children}</span>
-      </button>
+      </Tag>
     );
   },
 );
