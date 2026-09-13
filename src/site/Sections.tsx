@@ -12,6 +12,7 @@ import {
   SECTION_Y,
 } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
+import { ImageFlyIn } from "./ImageFlyIn";
 
 /**
  * The three short sections that punctuate the page.
@@ -140,6 +141,14 @@ export function FinalCta() {
           backgroundSize: "56px 56px",
         }}
       />
+
+      {/* Campus pages flying past the closing ask. This is the one section on
+          the page whose content is a single centred column, which is the shape
+          the effect needs: it holds a clear zone in the middle and the headline
+          and button sit inside it untouched. The hole is sized to the content
+          box — the heading is capped at 24ch, which is about 660px at this type
+          size, and the stack below it runs to roughly 430px tall. */}
+      <ImageFlyIn holeX={352} holeY={228} maxOpacity={0.38} />
 
       <div className={`${CONTAINER} relative flex flex-col items-center gap-7 text-center`}>
         <h2 className="max-w-[24ch] text-[clamp(2.1rem,4.6vw,3.4rem)] font-extrabold leading-[1.06] tracking-[-0.035em] text-white">

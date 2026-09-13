@@ -32,8 +32,13 @@ import { SiteFooter } from "@/components/site-footer";
  * Every animated section checks `prefers-reduced-motion` and renders its final
  * composition when it is set — not a degraded version, the same layout without
  * the movement. Reveals are IntersectionObserver-driven and disconnect after
- * firing; nothing on this page runs a scroll handler except the header, which
- * reads one boolean.
+ * firing.
+ *
+ * Two scroll listeners exist, both passive and both reading `scrollY` and
+ * nothing else: the header, which flips one boolean, and the closing panel's
+ * image field, which turns a scroll delta into a nudge on its own clock. The
+ * field's loop is an IntersectionObserver away from the ticker whenever the
+ * section is off screen, so the page's resting cost is unchanged above it.
  *
  * ── The ambient wash is gone ───────────────────────────────────────────────
  *
@@ -78,7 +83,7 @@ export function App() {
         <FAQSection />
       </section>
 
-      {/* 9 — One clear way to act */}
+      {/* 9 — One clear way to act, with the campus pages flying past it */}
       <FinalCta />
 
       <SiteFooter />
