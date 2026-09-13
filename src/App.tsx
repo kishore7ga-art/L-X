@@ -1,5 +1,4 @@
 import React from "react";
-import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { HeroParallaxDemo } from "@/components/hero-parallax-demo";
 import { CompareDemo } from "@/components/compare-demo";
@@ -62,8 +61,18 @@ export function App() {
 
   return (
     <main className="relative flex min-h-screen w-full flex-col overflow-x-clip bg-white text-black transition-colors duration-500 selection:bg-slate-200 dark:bg-[#070910] dark:text-slate-100 dark:selection:bg-blue-500/30">
-      {/* Fixed Site Header */}
-      <Navbar />
+      {/*
+        No site header.
+        
+        Removed on request. What went with it, so it is findable later: the
+        brand mark, the in-page section nav, the theme toggle, and the only
+        "Sign in" link on the page. New visitors still reach signup from the
+        hero, the pricing cards and the closing call to action; a returning user
+        has no link back into the editor from here and has to know the address.
+        
+        Navbar.tsx is kept rather than deleted — it is a working component and
+        re-mounting it is one line.
+      */}
 
       {/* Five coloured ambient glows, scattered down the whole page.
           The hero ground below paints over the top of these, so the hero
