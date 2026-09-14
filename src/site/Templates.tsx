@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, CheckCircle2, XCircle, AlertTriangle, Lock, ShieldAlert, Zap, RefreshCw } from "lucide-react";
 
 import { CONTAINER, COLORS, EYEBROW } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
@@ -221,80 +221,198 @@ export function Templates() {
 
 export function Split() {
   return (
-    <section id="features" className="relative z-30 grid lg:grid-cols-2">
-      <SplitHalf
-        background={COLORS.page}
-        eyebrow="WITH WEBXITE"
-        titleA="One site,"
-        titleB="every department"
-        cta="Build a campus site"
-        image="/showcase/birmingham.jpg"
-        alt="With WebXite: campus website with all department pages"
-      />
-      <SplitHalf
-        background={COLORS.wash}
-        eyebrow="WITHOUT WEBXITE"
-        titleA="A page for"
-        titleB="one programme"
-        cta="Build a single page"
-        image="/showcase/queens-belfast.jpg"
-        alt="Without WebXite: single landing page"
-      />
+    <section id="features" className="relative z-30 grid lg:grid-cols-2 border-t border-slate-100">
+      {/* ── Left Half: WITH WEBXITE (Beautiful, Modern, Fast) ─────────── */}
+      <div className="flex flex-col items-center bg-white px-6 pb-0 pt-[clamp(3.5rem,7vw,5.5rem)] text-center sm:px-10 border-b lg:border-b-0 lg:border-r border-slate-100">
+        <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-emerald-600 mb-2">
+          WITH WEBXITE
+        </p>
+
+        <h2 className="text-[clamp(1.9rem,3.6vw,2.7rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
+          One modern site,{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-600">
+            every department
+          </span>
+        </h2>
+
+        <p className="mt-3 max-w-md text-xs sm:text-sm leading-relaxed text-slate-500">
+          Unified campus branding, sub-second page loads, and seamless admissions workflows without writing code.
+        </p>
+
+        {/* Feature Pills */}
+        <div className="mt-5 flex flex-wrap justify-center gap-2 max-w-md">
+          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-700 ring-1 ring-emerald-200">
+            <CheckCircle2 className="h-3 w-3 text-emerald-600" /> 99/100 PageSpeed
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-teal-50 px-3 py-1 text-[11px] font-bold text-teal-700 ring-1 ring-teal-200">
+            <Lock className="h-3 w-3 text-teal-600" /> Auto SSL & Edge CDN
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold text-blue-700 ring-1 ring-blue-200">
+            <Zap className="h-3 w-3 text-blue-600" /> Department Portals
+          </span>
+        </div>
+
+        <a
+          href={SIGN_UP_URL}
+          className="group mt-7 inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-white no-underline shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800"
+        >
+          Build a campus site
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+
+        {/* Beautiful Modern Campus Browser Mockup */}
+        <div className="mt-12 w-full max-w-[560px] xl:max-w-[620px] overflow-hidden rounded-t-3xl shadow-[0_-8px_40px_rgba(11,18,32,0.14)] ring-1 ring-slate-900/[0.08] bg-white text-left">
+          {/* macOS Browser Header */}
+          <div className="flex items-center justify-between border-b border-slate-200 bg-slate-100 px-4 py-2.5 text-xs text-slate-500">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            </div>
+            <div className="flex items-center gap-1 rounded-full bg-white px-3 py-1 text-[10px] font-mono text-slate-700 shadow-sm ring-1 ring-slate-200">
+              <span className="text-emerald-500 font-bold">🔒</span>
+              <span>https://university.edu</span>
+            </div>
+            <span className="text-[10px] text-emerald-600 font-bold">● Live</span>
+          </div>
+
+          {/* Browser Content */}
+          <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-50">
+            <img
+              src="/showcase/birmingham.jpg"
+              alt="With WebXite: Modern Campus Website"
+              className="h-full w-full object-cover object-top"
+            />
+
+            {/* Floating Top Nav Bar Overlay */}
+            <div className="absolute inset-x-3 top-3 flex items-center justify-between rounded-xl bg-white/95 px-3 py-1.5 shadow-md backdrop-blur-sm text-[10px] font-bold text-slate-800">
+              <span className="font-extrabold tracking-tight text-slate-900 uppercase">
+                UNIVERSITY CAMPUS
+              </span>
+              <div className="hidden sm:flex gap-3 text-slate-600 text-[9px]">
+                <span>Admissions</span>
+                <span>Academics</span>
+                <span>Research</span>
+              </div>
+              <span className="rounded-md bg-blue-600 px-2 py-0.5 text-[8px] font-black uppercase text-white shadow">
+                Apply 2026
+              </span>
+            </div>
+
+            {/* Floating Live Stat Badge */}
+            <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-2xl bg-white/95 p-2.5 shadow-xl backdrop-blur-md ring-1 ring-slate-900/10">
+              <span className="flex h-7 w-7 items-center justify-center rounded-xl bg-emerald-500 text-white font-black text-xs shadow">
+                ⚡
+              </span>
+              <div>
+                <p className="text-[9px] font-black text-slate-900">0.4s Instant Load</p>
+                <p className="text-[8px] font-medium text-slate-500">100% Score on Google Core Vitals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Right Half: WITHOUT WEBXITE (Worst, Outdated, Broken) ─────── */}
+      <div className="flex flex-col items-center bg-[#E8ECF5] px-6 pb-0 pt-[clamp(3.5rem,7vw,5.5rem)] text-center sm:px-10">
+        <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-red-500 mb-2">
+          WITHOUT WEBXITE
+        </p>
+
+        <h2 className="text-[clamp(1.9rem,3.6vw,2.7rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
+          Slow, broken &{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-amber-600">
+            hard to manage
+          </span>
+        </h2>
+
+        <p className="mt-3 max-w-md text-xs sm:text-sm leading-relaxed text-slate-500">
+          Slow 14s load times, endless WordPress plugin crashes, 404 links, and frustrated student applicants.
+        </p>
+
+        {/* Pain Point Pills */}
+        <div className="mt-5 flex flex-wrap justify-center gap-2 max-w-md">
+          <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-[11px] font-bold text-red-700 ring-1 ring-red-200">
+            <XCircle className="h-3 w-3 text-red-500" /> 14.8s Slow Page Load
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-3 py-1 text-[11px] font-bold text-rose-700 ring-1 ring-rose-200">
+            <AlertTriangle className="h-3 w-3 text-rose-500" /> 404 Broken Links
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-[11px] font-bold text-amber-800 ring-1 ring-amber-200">
+            <ShieldAlert className="h-3 w-3 text-amber-600" /> 28 Unsafe Plugins
+          </span>
+        </div>
+
+        <a
+          href={SIGN_UP_URL}
+          className="group mt-7 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/90 px-8 py-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-slate-900 no-underline shadow-sm transition-all duration-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+        >
+          Upgrade your website
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+
+        {/* Outdated / Broken Browser Mockup */}
+        <div className="mt-12 w-full max-w-[560px] xl:max-w-[620px] overflow-hidden rounded-t-3xl shadow-[0_-8px_40px_rgba(11,18,32,0.14)] ring-1 ring-slate-900/[0.08] bg-slate-200 text-left">
+          {/* Outdated Browser Header */}
+          <div className="flex items-center justify-between border-b border-slate-300 bg-slate-300/80 px-4 py-2 text-xs text-slate-600 font-mono">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-slate-400" />
+            </div>
+            <div className="flex items-center gap-1 rounded bg-amber-100 px-2 py-0.5 text-[9px] text-amber-900 border border-amber-300">
+              <span className="text-red-500 font-bold">⚠️ Not Secure</span>
+              <span>http://old-dept-site.edu/v1/error.php</span>
+            </div>
+            <span className="text-[9px] text-red-600 font-bold">Error 504</span>
+          </div>
+
+          {/* Broken Clunky Retro Website Layout */}
+          <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#fafafa] p-3 text-slate-900 font-serif flex flex-col justify-between border-2 border-slate-400">
+            {/* 90s Flashing banner */}
+            <div className="bg-yellow-300 p-1 text-center text-[9px] font-mono font-bold text-red-700 border-2 border-dashed border-red-500">
+              🚧 [SITE UNDER MAINTENANCE] - SOME DEPT PAGES MISSING 🚧
+            </div>
+
+            {/* Broken PHP Error Box */}
+            <div className="my-1.5 rounded bg-red-100 p-2 border border-red-400 font-mono text-[8px] text-red-800 leading-tight">
+              <strong>Fatal error:</strong> Uncaught Error: Call to undefined function wp_page_builder() in /var/www/html/wp-content/themes/legacy/header.php:14
+            </div>
+
+            {/* Clunky Links & Broken placeholder */}
+            <div className="grid grid-cols-2 gap-2 text-[9px] items-center my-auto">
+              <div className="space-y-1">
+                <p className="font-bold underline text-blue-800 text-[10px]">Welcome to Official Page</p>
+                <p className="text-slate-600 text-[8px] font-sans">
+                  Best viewed in Internet Explorer 6.0 at 800x600 resolution.
+                </p>
+                <div className="flex flex-col gap-0.5 text-[8px] text-blue-700 underline font-sans">
+                  <span>&gt; Admissions_old_final.pdf</span>
+                  <span>&gt; Faculty Directory (Page Not Found 404)</span>
+                  <span>&gt; Syllabus 2018.docx</span>
+                </div>
+              </div>
+
+              {/* Broken Image Placeholder & Spinner */}
+              <div className="flex flex-col items-center justify-center rounded border-2 border-dashed border-slate-400 bg-slate-100 p-3 text-center">
+                <span className="text-red-500 font-bold text-xs">❌ [Image Error]</span>
+                <span className="text-[7px] text-slate-500 font-mono mt-1">campus_photo.jpg (404)</span>
+                <div className="mt-2 flex items-center gap-1 text-[8px] font-mono text-amber-700">
+                  <RefreshCw className="h-2.5 w-2.5 animate-spin" />
+                  <span>Loading... (14.8s)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer raw html table */}
+            <div className="border-t border-slate-300 pt-1 text-[7px] font-mono text-slate-500 flex justify-between">
+              <span>Visitor Counter: [000142]</span>
+              <span>© 2004 Legacy Department</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function SplitHalf({
-  background,
-  eyebrow,
-  titleA,
-  titleB,
-  cta,
-  image,
-  alt,
-}: {
-  background: string;
-  eyebrow: string;
-  titleA: string;
-  titleB: string;
-  cta: string;
-  image: string;
-  alt: string;
-}) {
-  return (
-    <div
-      className="flex flex-col items-center px-6 pb-0 pt-[clamp(3.5rem,7vw,6rem)] text-center sm:px-10"
-      style={{ backgroundColor: background }}
-    >
-      <p className={EYEBROW}>{eyebrow}</p>
-      <h2 className="mt-3 text-[clamp(1.8rem,3.6vw,2.6rem)] font-extrabold leading-[1.1] tracking-[-0.035em] text-slate-900">
-        {titleA}{" "}
-        <span
-          className="bg-clip-text text-transparent"
-          style={{ backgroundImage: "linear-gradient(90deg,#14B8A6,#2563EB 60%,#6D28D9)" }}
-        >
-          {titleB}
-        </span>
-      </h2>
-
-      <a
-        href={SIGN_UP_URL}
-        className="group mt-7 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/90 px-8 py-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-slate-900 no-underline shadow-sm transition-all duration-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
-      >
-        {cta}
-        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-      </a>
-
-      {/* Bleeds off the bottom edge on purpose */}
-      <div className="mt-12 w-full max-w-[560px] xl:max-w-[620px] overflow-hidden rounded-t-3xl shadow-[0_-4px_40px_rgba(11,18,32,0.14)] ring-1 ring-slate-900/[0.08]">
-        <img
-          src={image}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className="aspect-[4/3] w-full object-cover object-top"
-        />
-      </div>
-    </div>
-  );
-}
