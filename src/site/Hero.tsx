@@ -73,41 +73,44 @@ export function Hero() {
       <div className={`${CONTAINER} relative grid items-center gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:gap-8 xl:gap-14`}>
         {/* ── Left Column: Headline & Value Prop ───────────────────────────── */}
         <div className="relative z-10">
-          <h1 className="text-[clamp(2.5rem,4.4vw,4.4rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
-            Build websites in
-            <br />
-            <span className="relative inline-flex items-center align-baseline">
-              <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-5 py-0.5 text-white shadow-md">
+          <h1 className="text-[clamp(2.6rem,4.6vw,4.5rem)] font-extrabold leading-[1.15] tracking-[-0.04em] text-slate-950">
+            <span className="block mb-2">Build websites in</span>
+
+            <span className="flex items-center gap-3 mb-2">
+              <span className="relative inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-6 sm:px-7 py-1 text-white shadow-xl">
                 minutes
               </span>
+              <span className="relative inline-flex items-center">
+                <span className="text-[clamp(2.4rem,4vw,4rem)] font-extrabold text-slate-900 leading-none">—</span>
+                {/* Fluid organic S-curve bridge linking the two pills */}
+                <svg
+                  className="pointer-events-none absolute -left-2 top-3 h-10 w-10 text-cyan-500 opacity-95"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M 14 2 C 14 18, 30 14, 30 38"
+                    stroke="url(#ribbon-bridge-grad)"
+                    strokeWidth="11"
+                    strokeLinecap="round"
+                  />
+                  <defs>
+                    <linearGradient id="ribbon-bridge-grad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#2563EB" />
+                      <stop offset="100%" stopColor="#06B6D4" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
             </span>
-            —
-            <span className="relative inline-flex items-center align-baseline">
-              <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 px-5 py-0.5 text-white shadow-md">
+
+            <span className="flex items-center gap-3">
+              <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 px-6 sm:px-7 py-1 text-white shadow-xl">
                 no code
               </span>
-              {/* Fluid organic S-curve bridge linking the two pills */}
-              <svg
-                className="pointer-events-none absolute -right-6 -top-6 h-10 w-10 text-cyan-500 opacity-90"
-                viewBox="0 0 40 40"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M 36 2 C 36 18, 12 10, 12 36"
-                  stroke="url(#ribbon-bridge-grad)"
-                  strokeWidth="12"
-                  strokeLinecap="round"
-                />
-                <defs>
-                  <linearGradient id="ribbon-bridge-grad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#2563EB" />
-                    <stop offset="100%" stopColor="#06B6D4" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>{" "}
-            needed.
+              <span>needed.</span>
+            </span>
           </h1>
 
           <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-relaxed text-slate-600">
