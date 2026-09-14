@@ -23,43 +23,37 @@ import { SIGN_UP_URL } from "@/env";
 
 /* ── Why it stands out ──────────────────────────────────────────────────── */
 
+import { Layers, SlidersHorizontal, Zap } from "lucide-react";
+
 const PILLARS = [
   {
-    icon: MousePointerClick,
-    title: "Edit on the page",
-    body: "Click any heading, image or section and change it where it sits. No dashboards, no fields to map.",
+    icon: SlidersHorizontal,
+    title: "Visual Page Builder",
   },
   {
-    icon: ShieldCheck,
-    title: "Domain and HTTPS handled",
-    body: "Point your existing domain at us and the certificate is issued and renewed for you.",
+    icon: Layers,
+    title: "One Plan. All Features",
   },
   {
-    icon: Gauge,
-    title: "Fast by default",
-    body: "Pages are rendered on our servers and sent as finished HTML, so they open quickly on campus wifi.",
+    icon: Zap,
+    title: "High Speed Performance",
   },
 ] as const;
 
 export function Pillars() {
   return (
-    <section className="border-y border-slate-200 bg-white py-12">
+    <section className="border-t border-slate-200 bg-white py-10 sm:py-12">
       <div className={CONTAINER}>
-        <p className={`${EYEBROW} mb-8`}>Why institutions choose WebXite</p>
-        <div className="grid gap-10 sm:grid-cols-3 sm:gap-8">
-          {PILLARS.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="flex gap-4">
-              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700">
-                <Icon className="h-[18px] w-[18px]" />
+        <p className={`${EYEBROW} mb-6`}>WHY FINDFRIDAY STAND OUT OF THE CROWD</p>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+          {PILLARS.map(({ icon: Icon, title }) => (
+            <div key={title} className="flex items-center gap-3.5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 shadow-sm">
+                <Icon className="h-4 w-4" />
               </span>
-              <div>
-                <h3 className="text-[1.35rem] font-extrabold leading-tight tracking-[-0.025em] text-slate-900">
-                  {title}
-                </h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-slate-600">
-                  {body}
-                </p>
-              </div>
+              <h3 className="text-[1.15rem] sm:text-[1.25rem] font-extrabold tracking-[-0.02em] text-slate-900">
+                {title}
+              </h3>
             </div>
           ))}
         </div>
@@ -72,16 +66,6 @@ export function Pillars() {
 
 /**
  * A single line of text, scrolling.
- *
- * Two copies of the strip sit side by side and the pair is translated by
- * exactly half its own width, so the moment the first copy leaves the viewport
- * the second is precisely where it started — the loop has no seam and no
- * measurement. Animating `transform` and not `left` keeps it off the layout
- * thread.
- *
- * It stops entirely under `prefers-reduced-motion`: a continuous horizontal
- * crawl is the one motion on this page that can make somebody feel unwell, and
- * the words are worth reading standing still.
  */
 export function Marquee() {
   const track = useRef<HTMLDivElement>(null);
@@ -102,19 +86,20 @@ export function Marquee() {
     };
   }, []);
 
-  const line = "Built for campuses · Published in minutes · Yours to own";
+  const line = "Bring you that Friday feeling";
 
   return (
     <div className="relative z-20 overflow-hidden py-5 shadow-sm" style={{ background: BRAND_GRADIENT }}>
       <div ref={track} className="flex w-max">
         {[0, 1].map((copy) => (
-          <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
-            {[0, 1, 2].map((i) => (
+          <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
+            {[0, 1, 2, 3].map((i) => (
               <span
                 key={i}
-                className="whitespace-nowrap px-8 text-[1.35rem] font-extrabold tracking-[-0.02em] text-white"
+                className="flex items-center whitespace-nowrap px-6 text-[1.3rem] font-bold tracking-[-0.01em] text-white"
               >
-                {line}
+                <span>{line}</span>
+                <span className="ml-12 inline-block h-2 w-2 rounded-full bg-white/90" />
               </span>
             ))}
           </div>
