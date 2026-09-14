@@ -1,151 +1,247 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import gsap from "gsap";
+import { useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
-import { CONTAINER, COLORS, EYEBROW, REDUCED_MOTION, SECTION_Y } from "./tokens";
+import { CONTAINER, COLORS, EYEBROW } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
 
-/**
- * The template gallery.
- *
- * Uses the campus photographs already in `public/showcase` rather than stock
- * imagery. The subject matters more than usual here: somebody deciding whether
- * a builder suits an institution is looking for institutions, and a gallery of
- * generic gradients answers a different question.
- */
-
-const TEMPLATES = [
-  { src: "/showcase/oxford.jpg", name: "Heritage", kind: "Whole campus" },
-  { src: "/showcase/penn.jpg", name: "Meridian", kind: "Admissions" },
-  { src: "/showcase/uchicago.jpg", name: "Quadrangle", kind: "Faculty" },
-  { src: "/showcase/kent.jpg", name: "Parkside", kind: "Department" },
-  { src: "/showcase/ucdavis.jpg", name: "Fieldwork", kind: "Research" },
-  { src: "/showcase/georgetown.jpg", name: "Hillcrest", kind: "Alumni" },
-  { src: "/showcase/cranfield.jpg", name: "Aerofoil", kind: "Engineering" },
-  { src: "/showcase/uwa.jpg", name: "Southbank", kind: "Student life" },
-] as const;
+const CATEGORIES = ["Personal", "Business", "Portfolio", "Online Store", "Blog"] as const;
 
 export function Templates() {
-  const grid = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const node = grid.current;
-    if (!node) return;
-    if (window.matchMedia(REDUCED_MOTION).matches) return;
-
-    const cards = node.querySelectorAll<HTMLElement>("[data-card]");
-    gsap.set(cards, { y: 26, opacity: 0 });
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        gsap.to(cards, {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.out",
-          // Staggered by column as well as row, so the grid fills diagonally
-          // rather than a row at a time — the eye follows it more naturally.
-          stagger: { each: 0.06, from: "start" },
-        });
-        io.disconnect();
-      },
-      { threshold: 0.15 },
-    );
-
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
+  const [activeTab, setActiveTab] = useState<string>("Personal");
 
   return (
-    <section id="templates" className={`bg-white ${SECTION_Y}`}>
+    <section id="templates" className="relative z-30 bg-[#121620] text-white py-20 sm:py-28 overflow-hidden">
       <div className={CONTAINER}>
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        {/* ── Header: Title & Description ───────────────────────────────── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 items-end justify-between">
           <div>
-            <p className={EYEBROW}>Templates</p>
-            <h2 className="mt-3 max-w-[22ch] text-[clamp(2rem,4.2vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-slate-900">
-              Start from something finished
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-3">
+              200+ PRE-MADE BEAUTIFUL TEMPLATES
+            </p>
+            <h2 className="text-[clamp(2.2rem,4.2vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-white">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500">
+                Top-notch
+              </span>{" "}
+              responsive
+              <br />
+              website templates.
             </h2>
           </div>
+
+          <p className="text-[0.9375rem] leading-relaxed text-slate-400 max-w-md">
+            Starting a yoga studio, restaurant, agency or selling gadgets online? We have the Friday theme for you.
+            With dozens of designs to choose from, you can always find the perfect responsive website template for
+            your needs. Easily customize images, content, and style to make it your own.
+          </p>
+        </div>
+
+        {/* ── Category Filter Pills ─────────────────────────────────────── */}
+        <div className="mt-10 flex flex-wrap items-center">
+          <div className="inline-flex flex-wrap p-1.5 rounded-full bg-[#1C2230] border border-white/5">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveTab(cat)}
+                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                  activeTab === cat
+                    ? "bg-[#283244] text-white shadow-sm"
+                    : "text-slate-400 hover:text-white font-medium"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── 3 Showcase Cards Grid ──────────────────────────────────────── */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {/* Card 1: Developer */}
+          <div className="flex flex-col">
+            <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-[#181D28] p-4 text-white shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1">
+              {/* Top micro bar */}
+              <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-[9px] font-mono text-slate-400">
+                <span className="font-bold text-white">Daniel Stephan</span>
+                <div className="flex items-center gap-2">
+                  <span>About</span>
+                  <span>Skills</span>
+                  <span>Work</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="mt-3 flex items-center justify-between gap-2">
+                <div className="flex-1">
+                  <span className="inline-block rounded bg-teal-500/20 px-1.5 py-0.5 font-mono text-[7.5px] font-bold text-teal-300">
+                    // FULL-STACK DEV
+                  </span>
+                  <p className="mt-1 text-[13px] font-extrabold leading-tight tracking-tight text-white">
+                    Talk is cheap.
+                    <br />
+                    <span className="text-teal-400">Show me the code</span>
+                  </p>
+                  <p className="mt-1 font-mono text-[7px] text-slate-400">&gt; git clone dev.io</p>
+                  <div className="mt-3 flex items-center gap-3 text-[9px] font-mono font-bold">
+                    <span>
+                      <span className="text-white">12</span> <span className="text-slate-500">Repos</span>
+                    </span>
+                    <span>
+                      <span className="text-white">165</span> <span className="text-slate-500">Commits</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Developer photo with floating badges */}
+                <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-2xl">
+                  <img
+                    src="/showcase/dev-portrait.jpg"
+                    alt="Developer template preview"
+                    className="h-full w-full object-cover"
+                  />
+                  <span className="absolute bottom-1 right-1 rounded bg-amber-400 px-1 py-0.5 font-mono text-[7px] font-black text-black shadow">
+                    JS
+                  </span>
+                  <span className="absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 font-bold text-[7px] text-white shadow">
+                    A
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 px-1">
+              <h3 className="text-base font-extrabold text-white">Developer</h3>
+              <p className="text-xs text-slate-400">Banner Parallax, Before/After, Private Projects</p>
+            </div>
+          </div>
+
+          {/* Card 2: Freelancer */}
+          <div className="flex flex-col">
+            <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-[#FAFAFC] p-4 text-slate-900 shadow-2xl ring-1 ring-slate-900/10 transition-all duration-300 hover:-translate-y-1">
+              {/* Top micro bar */}
+              <div className="flex items-center justify-between border-b border-slate-200 pb-2 text-[9px] text-slate-500">
+                <span className="font-extrabold text-slate-900">Bruno.design</span>
+                <div className="flex gap-2">
+                  <span>Work</span>
+                  <span>About</span>
+                  <span>Contact</span>
+                </div>
+              </div>
+
+              {/* Centered Designer copy */}
+              <div className="mt-2 text-center">
+                <p className="text-[12px] font-extrabold text-slate-900">Bruno Erdtson</p>
+                <p className="text-[9px] font-semibold text-slate-500">UI/UX Interaction Designer</p>
+                <p className="text-[8px] text-slate-400">Based in Poland</p>
+
+                <div className="mt-2 flex items-center justify-center gap-2">
+                  <span className="rounded-full bg-[#633ff8] px-3 py-1 text-[8.5px] font-bold text-white shadow-sm">
+                    EDIT
+                  </span>
+                  <span className="rounded-full bg-slate-900 px-3 py-1 text-[8.5px] font-bold text-white shadow-sm">
+                    VIEW
+                  </span>
+                </div>
+
+                {/* Designer Portrait */}
+                <div className="mx-auto mt-2 h-14 w-14 overflow-hidden rounded-full ring-2 ring-slate-200">
+                  <img
+                    src="/showcase/freelancer-portrait.jpg"
+                    alt="Freelancer template preview"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 px-1">
+              <h3 className="text-base font-extrabold text-white">Freelancer</h3>
+              <p className="text-xs text-slate-400">Instagram, Dribbble Module, Portfolio Grid</p>
+            </div>
+          </div>
+
+          {/* Card 3: Personal Coach */}
+          <div className="flex flex-col">
+            <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-white p-4 text-slate-900 shadow-2xl ring-1 ring-slate-900/10 transition-all duration-300 hover:-translate-y-1">
+              {/* Top micro bar */}
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2 text-[9px] text-slate-500">
+                <span className="font-bold text-slate-900">Andy Grammer</span>
+                <div className="flex gap-2 text-[8px]">
+                  <span>Events</span>
+                  <span>Coaching</span>
+                  <span>Podcast</span>
+                </div>
+              </div>
+
+              {/* Hero content with speaker photo */}
+              <div className="mt-2.5 flex items-center justify-between gap-2">
+                <div className="flex-1">
+                  <p className="text-[13px] font-black leading-tight tracking-tight text-slate-900">
+                    Change
+                    <br />
+                    <span className="text-amber-500">starts within</span>
+                    <br />
+                    you
+                  </p>
+                  <div className="mt-2 flex items-center gap-1.5 text-[8px] font-bold text-slate-600">
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow">
+                      <Play className="h-2 w-2 fill-current" />
+                    </span>
+                    <span>Watch Video</span>
+                  </div>
+                </div>
+
+                {/* Speaker on stage photo */}
+                <div className="h-28 w-24 shrink-0 overflow-hidden rounded-2xl">
+                  <img
+                    src="/showcase/coach-portrait.jpg"
+                    alt="Coach template preview"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 px-1">
+              <h3 className="text-base font-extrabold text-white">Personal Coach</h3>
+              <p className="text-xs text-slate-400">Digital Download, Booking Event, Video Slider</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Pagination Controls ────────────────────────────────────────── */}
+        <div className="mt-12 flex items-center justify-center gap-3 text-slate-500">
+          <button type="button" className="flex h-7 w-7 items-center justify-center rounded-full hover:text-white transition-colors">
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <div className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+          </div>
+          <button type="button" className="flex h-7 w-7 items-center justify-center rounded-full hover:text-white transition-colors">
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* ── Bottom CTA ─────────────────────────────────────────────────── */}
+        <div className="mt-8 flex justify-center">
           <a
             href={SIGN_UP_URL}
-            className="group inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-[13px] font-bold uppercase tracking-[0.05em] text-slate-900 no-underline transition-all duration-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[13px] font-bold uppercase tracking-[0.06em] text-slate-900 shadow-2xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100"
           >
-            Browse all
+            Browse all templates
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
-
-        <div
-          ref={grid}
-          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {TEMPLATES.map((t) => (
-            <TemplateCard key={t.src} {...t} />
-          ))}
-        </div>
       </div>
     </section>
-  );
-}
-
-function TemplateCard({
-  src,
-  name,
-  kind,
-}: {
-  src: string;
-  name: string;
-  kind: string;
-}) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <a
-      data-card
-      href={SIGN_UP_URL}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group block overflow-hidden rounded-2xl bg-white no-underline shadow-[0_2px_12px_rgba(11,18,32,0.06)] ring-1 ring-slate-900/[0.05] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(11,18,32,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
-    >
-      {/* aspect-ratio on the frame, not a fixed height, so the grid never
-          shifts as images decode — the image arrives into space already held
-          open for it. */}
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={src}
-          alt={`${name} template`}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.06]"
-        />
-        <span
-          className="absolute inset-0 bg-slate-900/0 transition-colors duration-300 group-hover:bg-slate-900/20"
-          aria-hidden="true"
-        />
-        <span
-          className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-900 transition-all duration-300"
-          style={{
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? "translateY(0)" : "translateY(-6px)",
-          }}
-          aria-hidden="true"
-        >
-          <ArrowUpRight className="h-4 w-4" />
-        </span>
-      </div>
-
-      <div className="flex items-center justify-between gap-3 px-4 py-3.5">
-        <span className="text-[0.9375rem] font-extrabold tracking-[-0.02em] text-slate-900">
-          {name}
-        </span>
-        <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-slate-400">
-          {kind}
-        </span>
-      </div>
-    </a>
   );
 }
 
