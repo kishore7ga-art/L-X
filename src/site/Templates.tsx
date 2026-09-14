@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 import { CONTAINER, COLORS, EYEBROW } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
@@ -212,34 +212,6 @@ export function Templates() {
           </div>
         </div>
 
-        {/* ── Pagination Controls ────────────────────────────────────────── */}
-        <div className="mt-12 flex items-center justify-center gap-3 text-slate-500">
-          <button type="button" className="flex h-7 w-7 items-center justify-center rounded-full hover:text-white transition-colors">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-            <span className="h-1.5 w-1.5 rounded-full bg-slate-700" />
-          </div>
-          <button type="button" className="flex h-7 w-7 items-center justify-center rounded-full hover:text-white transition-colors">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
-
-        {/* ── Bottom CTA ─────────────────────────────────────────────────── */}
-        <div className="mt-8 flex justify-center">
-          <a
-            href={SIGN_UP_URL}
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[13px] font-bold uppercase tracking-[0.06em] text-slate-900 shadow-2xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100"
-          >
-            Browse all templates
-            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
-        </div>
       </div>
     </section>
   );
