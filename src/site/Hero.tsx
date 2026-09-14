@@ -74,20 +74,17 @@ export function Hero() {
         {/* ── Left Column: Headline & Value Prop ───────────────────────────── */}
         <div className="relative z-10">
           <h1 className="text-[clamp(2.5rem,4.4vw,4.4rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
-            Create a website in
+            Build websites in
             <br />
-            a few{" "}
-            {/* Connected Ribbon: minutes -> writing */}
             <span className="relative inline-flex items-center align-baseline">
               <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-5 py-0.5 text-white shadow-md">
                 minutes
               </span>
             </span>
-            , without
-            <br />
+            —
             <span className="relative inline-flex items-center align-baseline">
               <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 px-5 py-0.5 text-white shadow-md">
-                writing
+                no code
               </span>
               {/* Fluid organic S-curve bridge linking the two pills */}
               <svg
@@ -110,18 +107,18 @@ export function Hero() {
                 </defs>
               </svg>
             </span>{" "}
-            any code
+            needed.
           </h1>
 
           <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-relaxed text-slate-600">
-            Build high-converting <strong className="font-bold text-slate-900">college, campus, and brand websites</strong> in minutes with WebXite&rsquo;s effortless visual builder.
+            Fast, high-converting visual design for campus and brand sites.
           </p>
 
           <a
             href={SIGN_UP_URL}
             className="group mt-9 inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] text-white no-underline shadow-[0_10px_24px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-[0_16px_32px_rgba(15,23,42,0.26)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/40"
           >
-            Get started
+            Get Started
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
 
@@ -131,10 +128,8 @@ export function Hero() {
               <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 bg-clip-text text-[3rem] font-extrabold leading-none tracking-[-0.04em] text-transparent">
                 95%
               </span>
-              <span className="text-[10px] font-bold uppercase leading-[1.4] tracking-[0.1em] text-slate-500">
-                Happy Customers
-                <br />
-                &amp; Repeating
+              <span className="text-[11px] font-bold uppercase leading-[1.3] tracking-[0.1em] text-slate-500">
+                Retention
               </span>
             </div>
 
@@ -142,9 +137,7 @@ export function Hero() {
               <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 bg-clip-text text-[3rem] font-extrabold leading-none tracking-[-0.04em] text-transparent">
                 200+
               </span>
-              <span className="text-[10px] font-bold uppercase leading-[1.4] tracking-[0.1em] text-slate-500">
-                Pre-made Beautiful
-                <br />
+              <span className="text-[11px] font-bold uppercase leading-[1.3] tracking-[0.1em] text-slate-500">
                 Templates
               </span>
             </div>
