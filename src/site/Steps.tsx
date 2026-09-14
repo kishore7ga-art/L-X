@@ -140,7 +140,7 @@ export function Steps() {
  */
 function BrowserMock() {
   return (
-    <div className="relative flex items-end justify-center lg:justify-start -mb-10 sm:-mb-16 lg:-mb-32 xl:-mb-36 z-10 w-full">
+    <div className="relative flex items-end justify-center lg:justify-start -mb-6 sm:-mb-10 lg:-mb-14 xl:-mb-16 z-10 w-full">
       <div className="relative w-[115%] sm:w-[125%] lg:w-[135%] xl:w-[140%] max-w-[840px] -ml-[7%] sm:-ml-[12%] lg:-ml-[16%] transition-transform duration-500 hover:scale-[1.02]">
         <img
           src="/showcase/laptop-rock.png"

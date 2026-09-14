@@ -89,7 +89,7 @@ export function Marquee() {
   const line = "Bring you that Friday feeling";
 
   return (
-    <div className="relative z-20 overflow-hidden py-5 shadow-sm" style={{ background: BRAND_GRADIENT }}>
+    <div className="relative z-20 overflow-hidden py-6 sm:py-7 shadow-sm" style={{ background: BRAND_GRADIENT }}>
       <div ref={track} className="flex w-max">
         {[0, 1].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
