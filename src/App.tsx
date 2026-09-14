@@ -6,6 +6,7 @@ import { Hero } from "@/site/Hero";
 import { Pillars, Marquee, FinalCta } from "@/site/Sections";
 import { Steps } from "@/site/Steps";
 import { Templates, Split } from "@/site/Templates";
+import { Essentials } from "@/site/Essentials";
 import { Pricing } from "@/site/Pricing";
 
 import { FAQSection } from "@/components/faq-section";
@@ -68,6 +69,9 @@ export function App() {
 
       {/* 6 — What it looks like */}
       <Templates />
+
+      {/* 6.5 — All the essentials, included */}
+      <Essentials />
 
       {/* 7 — What it costs, beside somebody saying it worked. Together on
              purpose: a price is easier to accept next to evidence. */}
