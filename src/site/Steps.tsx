@@ -80,7 +80,7 @@ export function Steps() {
       className="relative z-10 overflow-visible pt-[clamp(4rem,7vw,7rem)] pb-0"
       style={{ backgroundColor: COLORS.wash }}
     >
-      <div className={`${CONTAINER} grid items-end gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-14`}>
+      <div className={`${CONTAINER} grid items-end gap-10 lg:grid-cols-[1.25fr_1fr] xl:grid-cols-[1.3fr_1fr] lg:gap-12`}>
         <BrowserMock />
 
         <div ref={wrap} className="pb-14 sm:pb-20 lg:pb-28">
@@ -136,20 +136,22 @@ export function Steps() {
 }
 
 /**
- * 3D laptop mockup resting on floating rock, overlapping into the marquee band below.
+ * Large 3D laptop mockup resting on floating rock, expanding to fill the left canvas and dipping into the marquee.
  */
 function BrowserMock() {
   return (
-    <div className="relative flex items-end justify-center -mb-8 sm:-mb-14 lg:-mb-24 z-10">
-      <div className="relative w-full max-w-[620px] transition-transform duration-500 hover:scale-[1.02]">
+    <div className="relative flex items-end justify-center lg:justify-start -mb-10 sm:-mb-16 lg:-mb-32 xl:-mb-36 z-10 w-full">
+      <div className="relative w-[115%] sm:w-[125%] lg:w-[135%] xl:w-[140%] max-w-[840px] -ml-[7%] sm:-ml-[12%] lg:-ml-[16%] transition-transform duration-500 hover:scale-[1.02]">
         <img
           src="/showcase/laptop-rock.png"
           alt="Published college website on laptop"
           loading="lazy"
           decoding="async"
-          className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.22)]"
+          className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.24)]"
         />
       </div>
     </div>
   );
 }
+
+export default Steps;
