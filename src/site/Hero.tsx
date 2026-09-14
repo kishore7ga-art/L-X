@@ -80,29 +80,6 @@ export function Hero() {
               <span className="relative inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-6 sm:px-7 py-1 text-white shadow-xl">
                 minutes
               </span>
-              <span className="relative inline-flex items-center">
-                <span className="text-[clamp(2.4rem,4vw,4rem)] font-extrabold text-slate-900 leading-none">—</span>
-                {/* Fluid organic S-curve bridge linking the two pills */}
-                <svg
-                  className="pointer-events-none absolute -left-2 top-3 h-10 w-10 text-cyan-500 opacity-95"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M 14 2 C 14 18, 30 14, 30 38"
-                    stroke="url(#ribbon-bridge-grad)"
-                    strokeWidth="11"
-                    strokeLinecap="round"
-                  />
-                  <defs>
-                    <linearGradient id="ribbon-bridge-grad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#2563EB" />
-                      <stop offset="100%" stopColor="#06B6D4" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </span>
             </span>
 
             <span className="flex items-center gap-3">
