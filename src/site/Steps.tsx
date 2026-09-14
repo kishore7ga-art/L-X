@@ -139,50 +139,24 @@ export function Steps() {
  */
 function BrowserMock() {
   return (
-    <div className="relative">
-      <div
-        className="overflow-hidden rounded-2xl bg-white shadow-[0_30px_70px_rgba(11,18,32,0.20)] ring-1 ring-slate-900/[0.08]"
-        style={{ transform: "rotate(-1.2deg)" }}
-      >
-        {/* Chrome */}
-        <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-2.5">
-          <span className="flex gap-1.5">
-            {["#F87171", "#FBBF24", "#34D399"].map((c) => (
-              <span key={c} className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: c }} />
-            ))}
-          </span>
-          <span className="ml-2 flex-1 truncate rounded-md bg-white px-2.5 py-1 font-mono text-[10px] text-slate-400 ring-1 ring-slate-200">
-            https://yourcollege.edu
-          </span>
-        </div>
+    <div className="relative flex items-center justify-center">
+      <div className="relative w-full max-w-[560px] transition-transform duration-500 hover:scale-[1.02]">
+        <img
+          src="/showcase/laptop-rock.png"
+          alt="Published college website on laptop"
+          loading="lazy"
+          decoding="async"
+          className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.22)]"
+        />
 
-        {/* A page, as the builder would output it */}
-        <div className="relative">
-          <img
-            src="/showcase/queens.jpg"
-            alt="A published campus website"
-            loading="lazy"
-            decoding="async"
-            className="aspect-[4/3] w-full object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-5">
-            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/70">
-              Admissions 2026
-            </p>
-            <p className="mt-1 text-[1.375rem] font-extrabold leading-tight tracking-[-0.025em] text-white">
-              Applications now open
-            </p>
-          </div>
+        {/* A published-state chip, tucked under the corner. */}
+        <div className="absolute bottom-6 left-6 flex items-center gap-2 rounded-full bg-white px-3.5 py-2 shadow-[0_10px_26px_rgba(11,18,32,0.16)] ring-1 ring-slate-900/[0.06]">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
+          <span className="text-[11px] font-bold text-slate-700">Live · HTTPS</span>
         </div>
-      </div>
-
-      {/* A published-state chip, tucked under the corner. */}
-      <div className="absolute -bottom-4 left-6 flex items-center gap-2 rounded-full bg-white px-3.5 py-2 shadow-[0_10px_26px_rgba(11,18,32,0.16)] ring-1 ring-slate-900/[0.06]">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-        </span>
-        <span className="text-[11px] font-bold text-slate-700">Live · HTTPS</span>
       </div>
     </div>
   );
