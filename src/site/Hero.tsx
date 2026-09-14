@@ -73,20 +73,20 @@ export function Hero() {
       <div className={`${CONTAINER} relative grid items-center gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:gap-8 xl:gap-14`}>
         {/* ── Left Column: Headline & Value Prop ───────────────────────────── */}
         <div className="relative z-10">
-          <h1 className="text-[clamp(2.6rem,4.6vw,4.5rem)] font-extrabold leading-[1.15] tracking-[-0.04em] text-slate-950">
-            <span className="block mb-2">Build websites in</span>
+          <h1 className="text-[clamp(2.6rem,4.6vw,4.5rem)] font-extrabold leading-[1.14] tracking-[-0.04em] text-slate-950">
+            <span className="block mb-1.5">Build beautiful websites in</span>
 
-            <span className="flex items-center gap-3 mb-2">
-              <span className="relative inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-6 sm:px-7 py-1 text-white shadow-xl">
+            <span className="inline-block mb-1.5">
+              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-7 py-0.5 text-white shadow-lg">
                 minutes
               </span>
             </span>
 
             <span className="flex items-center gap-3">
-              <span className="relative z-10 inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 px-6 sm:px-7 py-1 text-white shadow-xl">
+              <span className="inline-flex items-center rounded-full bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500 px-7 py-0.5 text-white shadow-lg">
                 no code
               </span>
-              <span>needed.</span>
+              <span className="text-slate-950">needed.</span>
             </span>
           </h1>
 
