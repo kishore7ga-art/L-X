@@ -1,130 +1,130 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Plus, Minus, HelpCircle, ArrowRight } from "lucide-react";
 
-interface FAQItem {
+import React, { useState } from "react";
+import { Plus, Minus, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+
+import { CONTAINER } from "@/site/tokens";
+import { SIGN_UP_URL } from "@/env";
+
+interface FAQ {
   question: string;
   answer: string;
 }
 
-const faqs: FAQItem[] = [
+const FAQS: FAQ[] = [
   {
-    question: "What is the purpose of this website?",
+    question: "What is Friday?",
     answer:
-      "WebXite engineers next-generation, high-converting 3D interactive web platforms for ambitious brands and fast-scaling startups. We replace slow, static templates with ultra-fast, modern websites designed to maximize user engagement and revenue."
+      "Friday is the modern, super simple drag-and-drop website builder designed to make creating beautiful, high-performance websites effortless without writing a single line of code.",
   },
   {
-    question: "How do I contact support?",
+    question: "How is Friday different from other website builders?",
     answer:
-      "You can reach our engineering team directly via the contact button in the header or schedule an instant strategy call. We review project inquiries within 24 hours and provide an interactive architectural roadmap."
+      "Friday is the answer to other popular and overcomplicated services that exist today. Friday includes everything you need to create and manage a beautiful website. No more plugins, themes, or service tiers. Just one plan gets you the industry's best tools and most secure hosting. Friday is meant to make your life easier, and help you finally have a website that you're proud of!",
   },
   {
-    question: "How do I find the best products?",
+    question: "What does a Friday subscription include?",
     answer:
-      "Explore our interactive showcase and live client deployments to see performance benchmarks, conversion case studies, and tailored feature sets designed for your industry."
+      "Your subscription includes unlimited pages, custom domain hosting, free 256-bit SSL certificate, automated daily backups, built-in SEO tools, fast global CDN, and 24/7 dedicated priority support.",
   },
   {
-    question: "Can I return a product?",
+    question: "How much does Friday cost?",
     answer:
-      "We work in agile sprint milestones with complete transparency. Every project includes structured review checkpoints, guaranteeing 100% satisfaction before final production launch."
+      "Friday costs just $25 for your first month (50% off), then $50/month with every single feature, hosting, and template completely included�with zero hidden transaction fees or upselling.",
   },
   {
-    question: "Do you offer international shipping?",
+    question: "How do I get started?",
     answer:
-      "Yes. All WebXite digital platforms are deployed to a global multi-region edge CDN across 300+ edge locations worldwide, ensuring sub-second delivery for global audiences."
+      "Simply click 'Create Your Website Now' or 'Get Started Today', pick a starter template from our 200+ curated library, and customize it visually in minutes with our intuitive live editor.",
   },
   {
-    question: "How can I track my order?",
+    question: "Can I move to Friday from a different platform?",
     answer:
-      "We provide a live private client sprint portal with real-time commit logs, staging preview links, and dedicated engineering Slack access throughout your 4-to-7 day delivery sprint."
-  }
+      "Yes! You can easily connect your existing custom domain name, import your content and assets, and migrate smoothly from WordPress, Wix, Squarespace, or Shopify in a few clicks.",
+  },
 ];
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(1); // Index 1 is open by default to match reference
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="relative w-full py-20 md:py-32 px-4 sm:px-8 md:px-12 lg:px-16 max-w-[95vw] 2xl:max-w-[1540px] mx-auto overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        
-        {/* Left Column: Massive Heading */}
-        <div className="lg:col-span-5 flex flex-col items-start lg:sticky lg:top-28">
-          <h2 className="text-balance text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.8rem] font-black tracking-tight text-slate-900 dark:text-white leading-[0.98]">
-            Frequently <br />
-            asked <br />
-            questions
-          </h2>
-
-          <p className="mt-8 text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed text-pretty max-w-md">
-            Everything you need to know about our engineering process, delivery timelines, and performance architecture.
+    <section id="faq" className="relative z-30 w-full bg-[#E8EDF4] py-20 sm:py-28 overflow-hidden">
+      <div className={CONTAINER}>
+        {/* -- Section Header ---------------------------------------------- */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-2">
+            FREQUENTLY ASKED QUESTION
           </p>
+          <h2 className="text-[clamp(2.2rem,4vw,3.2rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
+            Need a{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-600">
+              support?
+            </span>
+          </h2>
+        </div>
 
+        {/* -- Accordion List ---------------------------------------------- */}
+        <div className="max-w-3xl mx-auto flex flex-col">
+          {FAQS.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                className="border-b border-slate-300/70 py-4 transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex items-center justify-between text-left py-2 group focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-[15px] sm:text-[16.5px] font-extrabold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+                    {faq.question}
+                  </span>
+                  <span className="ml-4 shrink-0 text-slate-400 group-hover:text-slate-700 transition-colors">
+                    {isOpen ? (
+                      <Minus className="h-4 w-4 stroke-[2.5]" />
+                    ) : (
+                      <Plus className="h-4 w-4 stroke-[2.5]" />
+                    )}
+                  </span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-3 mb-2 rounded-2xl bg-white p-5 sm:p-6 shadow-sm ring-1 ring-slate-900/5 text-xs sm:text-[13px] leading-relaxed text-slate-600">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* -- Bottom CTA --------------------------------------------------- */}
+        <div className="mt-14 flex justify-center">
           <a
-            href="#contact"
-            className="mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-base transition-all shadow-md hover:shadow-xl group"
+            href={SIGN_UP_URL}
+            className="group inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white px-8 py-3.5 text-xs font-extrabold uppercase tracking-wider text-slate-800 shadow-sm transition-all duration-300 hover:bg-slate-50 hover:shadow-md hover:-translate-y-0.5"
           >
-            <span>Ask a custom question</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            Visit help center
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
-
-        {/* Right Column: Full-Width Prominent Interactive Accordion List */}
-        <div className="lg:col-span-7 flex flex-col w-full">
-          <div className="border-t border-slate-300/90 dark:border-slate-800">
-            {faqs.map((faq, index) => {
-              const isOpen = openIndex === index;
-              return (
-                <div
-                  key={index}
-                  className="border-b border-slate-300/90 dark:border-slate-800 transition-colors duration-200"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full py-7 sm:py-8 md:py-9 flex items-start gap-4 sm:gap-6 text-left group focus:outline-none"
-                    aria-expanded={isOpen}
-                  >
-                    {/* Blue Plus / Minus Icon on Left */}
-                    <div className="shrink-0 mt-1 w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-transform duration-300">
-                      {isOpen ? (
-                        <Minus className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
-                      ) : (
-                        <Plus className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5] group-hover:scale-110 transition-transform" />
-                      )}
-                    </div>
-
-                    {/* Question Text */}
-                    <span className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-slate-900 dark:text-white tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {faq.question}
-                    </span>
-                  </button>
-
-                  {/* Expandable Answer */}
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.04, 0.62, 0.23, 0.98] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-8 pl-11 sm:pl-14 pr-4 text-slate-600 dark:text-slate-300 text-lg sm:text-xl leading-relaxed font-normal">
-                          {faq.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
       </div>
     </section>
   );

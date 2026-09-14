@@ -9,6 +9,7 @@ import { Templates, Split } from "@/site/Templates";
 import { Essentials } from "@/site/Essentials";
 import { Pricing } from "@/site/Pricing";
 import { Story } from "@/site/Story";
+import { Blog } from "@/site/Blog";
 
 import { FAQSection } from "@/components/faq-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -80,10 +81,11 @@ export function App() {
       {/* 7.5 — Making every day is Friday / Story */}
       <Story />
 
-      {/* 8 — Objections */}
-      <section id="faq" className="w-full bg-white">
-        <FAQSection />
-      </section>
+      {/* 7.8 — Resources, Inspiration and Tips / Blog */}
+      <Blog />
+
+      {/* 8 — Objections / Support FAQ */}
+      <FAQSection />
 
       {/* 9 — One clear way to act */}
       <FinalCta />
