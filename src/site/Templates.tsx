@@ -149,35 +149,28 @@ function TemplateCard({
   );
 }
 
-/* ── Two things it does, side by side ──────────────────────────────────── */
+/* ── Two things it does, side by side: With WebXite vs Without WebXite ──── */
 
-/**
- * A split panel, one half on white and one on the wash.
- *
- * The divider is the two backgrounds meeting rather than a border, which is why
- * the halves have no gap between them: a rule down the middle would make two
- * cards, and these are two halves of one statement.
- */
 export function Split() {
   return (
-    <section id="features" className="grid lg:grid-cols-2">
+    <section id="features" className="relative z-30 grid lg:grid-cols-2">
       <SplitHalf
         background={COLORS.page}
-        eyebrow="For a whole institution"
+        eyebrow="WITH WEBXITE"
         titleA="One site,"
         titleB="every department"
         cta="Build a campus site"
         image="/showcase/birmingham.jpg"
-        alt="A campus website with department pages"
+        alt="With WebXite: campus website with all department pages"
       />
       <SplitHalf
         background={COLORS.wash}
-        eyebrow="For a single team"
+        eyebrow="WITHOUT WEBXITE"
         titleA="A page for"
         titleB="one programme"
         cta="Build a single page"
         image="/showcase/queens-belfast.jpg"
-        alt="A single programme landing page"
+        alt="Without WebXite: single landing page"
       />
     </section>
   );
@@ -218,16 +211,14 @@ function SplitHalf({
 
       <a
         href={SIGN_UP_URL}
-        className="group mt-7 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/70 px-7 py-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-slate-900 no-underline transition-all duration-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
+        className="group mt-7 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/90 px-8 py-3.5 text-[12.5px] font-bold uppercase tracking-[0.06em] text-slate-900 no-underline shadow-sm transition-all duration-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white"
       >
         {cta}
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
       </a>
 
-      {/* Bleeds off the bottom edge on purpose: the image continues past the
-          fold of its own half, which reads as a screen the section is sitting
-          on rather than a picture it contains. */}
-      <div className="mt-12 w-full max-w-[540px] xl:max-w-[600px] overflow-hidden rounded-t-2xl shadow-[0_-2px_50px_rgba(11,18,32,0.18)] ring-1 ring-slate-900/[0.07]">
+      {/* Bleeds off the bottom edge on purpose */}
+      <div className="mt-12 w-full max-w-[560px] xl:max-w-[620px] overflow-hidden rounded-t-3xl shadow-[0_-4px_40px_rgba(11,18,32,0.14)] ring-1 ring-slate-900/[0.08]">
         <img
           src={image}
           alt={alt}
