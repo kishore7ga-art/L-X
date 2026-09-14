@@ -67,10 +67,10 @@ export function Hero() {
         style={{ background: BRAND_GRADIENT }}
       />
 
-      <div className={`${CONTAINER} relative grid items-center gap-14 lg:grid-cols-[1.02fr_1fr] lg:gap-10`}>
+      <div className={`${CONTAINER} relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-12 xl:gap-16`}>
         {/* ── Left: the claim ─────────────────────────────────────────────── */}
         <div className="relative z-10">
-          <h1 className="text-[clamp(2.4rem,5.1vw,3.9rem)] font-extrabold leading-[1.06] tracking-[-0.035em] text-slate-900">
+          <h1 className="text-[clamp(2.5rem,4.4vw,4.4rem)] font-extrabold leading-[1.06] tracking-[-0.035em] text-slate-900">
             Your college website,
             <br />
             <Highlight>live this week</Highlight>
@@ -78,7 +78,7 @@ export function Hero() {
             without a developer
           </h1>
 
-          <p className="mt-7 max-w-[30rem] text-[1.0625rem] leading-relaxed text-slate-600">
+          <p className="mt-7 max-w-[34rem] text-[1.0625rem] sm:text-[1.125rem] leading-relaxed text-slate-600">
             Build every page, connect the domain you already own, and publish. WebXite
             handles the hosting, the certificate and the search setup.
           </p>
@@ -100,7 +100,7 @@ export function Hero() {
         </div>
 
         {/* ── Right: the product, mid-edit ────────────────────────────────── */}
-        <div ref={stage} className="relative h-[440px] sm:h-[520px] lg:h-[560px]">
+        <div ref={stage} className="relative h-[440px] sm:h-[520px] lg:h-[580px] xl:h-[620px] w-full max-w-[640px] lg:max-w-none mx-auto">
           <FloatingToolbar />
           <CampusCard />
           <ColorPanel />

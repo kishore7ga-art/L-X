@@ -227,7 +227,7 @@ function SplitHalf({
       {/* Bleeds off the bottom edge on purpose: the image continues past the
           fold of its own half, which reads as a screen the section is sitting
           on rather than a picture it contains. */}
-      <div className="mt-12 w-full max-w-[440px] overflow-hidden rounded-t-2xl shadow-[0_-2px_50px_rgba(11,18,32,0.18)] ring-1 ring-slate-900/[0.07]">
+      <div className="mt-12 w-full max-w-[540px] xl:max-w-[600px] overflow-hidden rounded-t-2xl shadow-[0_-2px_50px_rgba(11,18,32,0.18)] ring-1 ring-slate-900/[0.07]">
         <img
           src={image}
           alt={alt}

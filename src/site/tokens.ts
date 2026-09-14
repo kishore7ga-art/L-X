@@ -37,7 +37,7 @@ export const COLORS = {
  * six different paddings and the page read as a stack of unrelated pages.
  */
 export const SECTION_Y = "py-[clamp(4.5rem,9vw,8.5rem)]";
-export const CONTAINER = "mx-auto w-full max-w-[1180px] px-6 sm:px-10";
+export const CONTAINER = "mx-auto w-full max-w-[1540px] px-6 sm:px-10 lg:px-16";
 
 /**
  * The eyebrow above every section heading.

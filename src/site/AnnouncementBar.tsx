@@ -46,7 +46,7 @@ export function AnnouncementBar() {
       className="relative z-50 w-full text-white"
       style={{ background: BRAND_GRADIENT }}
     >
-      <div className="mx-auto flex max-w-[1180px] items-center justify-center gap-3 px-12 py-2.5 text-center sm:px-14">
+      <div className="mx-auto flex max-w-[1540px] items-center justify-center gap-3 px-6 py-2.5 text-center sm:px-10 lg:px-16">
         <span className="hidden rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] sm:inline-block">
           New
         </span>
