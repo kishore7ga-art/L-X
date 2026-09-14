@@ -114,9 +114,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-relaxed text-slate-600">
-            Easily build your own{" "}
-            <strong className="font-bold text-slate-900">website and online store</strong>{" "}
-            that&rsquo;s search engine ready with WebXite&rsquo;s intuitive website builder.
+            Build high-converting <strong className="font-bold text-slate-900">college, campus, and brand websites</strong> in minutes with WebXite&rsquo;s effortless visual builder.
           </p>
 
           <a
@@ -193,15 +191,15 @@ export function Hero() {
             <path d="M 440 280 C 440 340, 430 400, 440 440" strokeDasharray="3 3" />
           </svg>
 
-          {/* 1. Turtle Showcase Image Card */}
+          {/* 1. College Campus Showcase Image Card */}
           <div
             data-float
             className="absolute left-[3%] top-[6%] w-[210px] sm:w-[230px] rounded-3xl bg-white p-1.5 shadow-[0_22px_48px_rgba(11,18,32,0.14)] ring-1 ring-slate-900/[0.06]"
           >
             <div className="relative aspect-[4/4.8] overflow-hidden rounded-[22px]">
               <img
-                src="/showcase/turtle.jpg"
-                alt="Website builder canvas"
+                src="/showcase/college-hero.jpg"
+                alt="College website builder canvas"
                 className="h-full w-full object-cover"
                 loading="eager"
               />
