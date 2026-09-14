@@ -46,17 +46,17 @@ export function AnnouncementBar() {
       className="relative z-50 w-full text-white"
       style={{ background: BRAND_GRADIENT }}
     >
-      <div className="mx-auto flex max-w-[1540px] items-center justify-center gap-3 px-6 py-2.5 text-center sm:px-10 lg:px-16">
-        <span className="hidden rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] sm:inline-block">
-          New
+      <div className="mx-auto flex max-w-[1540px] items-center justify-center gap-3 px-6 py-2 text-center sm:px-10 lg:px-16">
+        <span className="rounded-full bg-white px-2.5 py-0.5 text-[11px] font-extrabold uppercase tracking-[0.06em] text-slate-900 shadow-sm">
+          Special
         </span>
-        <p className="text-[13px] font-medium leading-snug">
-          Built for Indian institutions — connect your own domain free for the first year.{" "}
+        <p className="text-[13px] font-semibold leading-snug tracking-[-0.01em]">
+          50% OFF Your first month{" "}
           <a
             href={SIGN_UP_URL}
-            className="font-bold underline decoration-white/40 underline-offset-2 transition-colors hover:decoration-white"
+            className="font-bold underline decoration-white/70 underline-offset-2 transition-colors hover:decoration-white hover:text-white"
           >
-            Get started
+            Get Started
           </a>
         </p>
       </div>

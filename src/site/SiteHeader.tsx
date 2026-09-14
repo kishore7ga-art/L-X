@@ -20,10 +20,10 @@ import { SIGN_IN_URL, SIGN_UP_URL } from "@/env";
  */
 
 const NAV = [
-  { label: "Features", href: "#features" },
-  { label: "Templates", href: "#templates" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "PRODUCTS", href: "#features", hasChevron: true },
+  { label: "TEMPLATES", href: "#templates", hasChevron: false },
+  { label: "RESOURCES", href: "#how", hasChevron: true },
+  { label: "PRICING", href: "#pricing", hasChevron: false },
 ] as const;
 
 export function SiteHeader() {
@@ -41,7 +41,7 @@ export function SiteHeader() {
     <header
       className="sticky top-0 z-40 w-full transition-[background-color,box-shadow,border-color] duration-300"
       style={{
-        backgroundColor: solid ? "rgba(255,255,255,0.86)" : "transparent",
+        backgroundColor: solid ? "rgba(255,255,255,0.92)" : "transparent",
         backdropFilter: solid ? "saturate(180%) blur(14px)" : "none",
         borderBottom: `1px solid ${solid ? COLORS.hairline : "transparent"}`,
       }}
@@ -49,35 +49,40 @@ export function SiteHeader() {
       <div className={`${CONTAINER} flex h-[72px] items-center justify-between gap-6`}>
         <a href="#top" className="flex shrink-0 items-center gap-2.5 no-underline">
           <Mark />
-          <span className="text-[19px] font-extrabold tracking-[-0.02em] text-slate-900">
+          <span className="text-[17px] font-black uppercase tracking-[0.08em] text-slate-900">
             WebXite
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {NAV.map((item) => (
             <a
-              key={item.href}
+              key={item.label}
               href={item.href}
-              className="text-[14px] font-semibold text-slate-600 no-underline transition-colors hover:text-slate-900"
+              className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-slate-700 no-underline transition-colors hover:text-slate-950"
             >
-              {item.label}
+              <span>{item.label}</span>
+              {item.hasChevron && (
+                <svg className="h-3 w-3 text-slate-400" viewBox="0 0 12 12" fill="none">
+                  <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
             </a>
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2.5">
+        <div className="flex shrink-0 items-center gap-3">
           <a
             href={SIGN_IN_URL}
             aria-label="Sign in"
-            className="hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 no-underline transition-colors hover:border-slate-300 hover:text-slate-900 sm:flex"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 no-underline transition-all hover:border-slate-900 hover:text-slate-900"
           >
             <UserRound className="h-[17px] w-[17px]" />
           </a>
 
           <a
             href={SIGN_UP_URL}
-            className="hidden items-center gap-2 rounded-full border border-slate-900 bg-white px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.04em] text-slate-900 no-underline transition-all duration-300 hover:-translate-y-px hover:bg-slate-900 hover:text-white sm:inline-flex"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-white px-5 py-2.5 text-[12.5px] font-bold uppercase tracking-[0.05em] text-slate-900 no-underline transition-all duration-300 hover:-translate-y-px hover:bg-slate-900 hover:text-white"
           >
             Get started
             <ArrowRight className="h-3.5 w-3.5" />
@@ -88,7 +93,7 @@ export function SiteHeader() {
             onClick={() => setMenu((v) => !v)}
             aria-expanded={menu}
             aria-label="Toggle menu"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-900 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-900 lg:hidden"
           >
             {menu ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
