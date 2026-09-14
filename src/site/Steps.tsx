@@ -77,13 +77,13 @@ export function Steps() {
   return (
     <section
       id="how"
-      className={SECTION_Y}
+      className="relative z-10 overflow-visible pt-[clamp(4rem,7vw,7rem)] pb-0"
       style={{ backgroundColor: COLORS.wash }}
     >
-      <div className={`${CONTAINER} grid items-center gap-16 lg:grid-cols-[1fr_1.05fr] lg:gap-14`}>
+      <div className={`${CONTAINER} grid items-end gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-14`}>
         <BrowserMock />
 
-        <div ref={wrap}>
+        <div ref={wrap} className="pb-14 sm:pb-20 lg:pb-28">
           <p className={EYEBROW}>How it works</p>
           <h2 className="mt-3 text-[clamp(2rem,4.2vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-slate-900">
             Three steps, one afternoon
@@ -118,7 +118,7 @@ export function Steps() {
 
           <a
             href={SIGN_UP_URL}
-            className="group mt-9 inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-8 py-4 text-[14px] font-bold uppercase tracking-[0.05em] text-white no-underline transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/40 focus-visible:ring-offset-2"
+            className="group mt-9 inline-flex items-center gap-2.5 rounded-full bg-slate-900 px-8 py-3.5 text-[13px] font-bold uppercase tracking-[0.06em] text-white no-underline transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900/40"
           >
             Get started
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -130,17 +130,12 @@ export function Steps() {
 }
 
 /**
- * A laptop-ish browser frame around a real campus photograph.
- *
- * Tilted very slightly and lifted on a long shadow, so it reads as an object
- * on the page rather than a rectangle in it — and only 1.2°, because a mock
- * rotated far enough to be obvious is also far enough to make its own text
- * unreadable.
+ * 3D laptop mockup resting on floating rock, overlapping into the marquee band below.
  */
 function BrowserMock() {
   return (
-    <div className="relative flex items-center justify-center">
-      <div className="relative w-full max-w-[560px] transition-transform duration-500 hover:scale-[1.02]">
+    <div className="relative flex items-end justify-center -mb-8 sm:-mb-14 lg:-mb-24 z-10">
+      <div className="relative w-full max-w-[620px] transition-transform duration-500 hover:scale-[1.02]">
         <img
           src="/showcase/laptop-rock.png"
           alt="Published college website on laptop"
@@ -148,15 +143,6 @@ function BrowserMock() {
           decoding="async"
           className="w-full h-auto object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.22)]"
         />
-
-        {/* A published-state chip, tucked under the corner. */}
-        <div className="absolute bottom-6 left-6 flex items-center gap-2 rounded-full bg-white px-3.5 py-2 shadow-[0_10px_26px_rgba(11,18,32,0.16)] ring-1 ring-slate-900/[0.06]">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-          </span>
-          <span className="text-[11px] font-bold text-slate-700">Live · HTTPS</span>
-        </div>
       </div>
     </div>
   );
