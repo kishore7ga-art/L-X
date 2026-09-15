@@ -9,12 +9,12 @@
  * it can name what is wrong.
  */
 
-/** Teal → blue → violet. The one gradient on the site. */
-export const BRAND_GRADIENT = "linear-gradient(90deg, #14B8A6 0%, #2563EB 52%, #6D28D9 100%)";
+/** Vibrant colorful gradient (Rose → Fuchsia → Violet → Blue → Teal). */
+export const BRAND_GRADIENT = "linear-gradient(90deg, #F43F5E 0%, #D946EF 25%, #8B5CF6 50%, #3B82F6 75%, #14B8A6 100%)";
 
-/** The same ramp at 135°, for surfaces rather than text. */
+/** The same multi-color ramp at 135°, for surfaces rather than text. */
 export const BRAND_GRADIENT_DIAGONAL =
-  "linear-gradient(135deg, #14B8A6 0%, #2563EB 52%, #6D28D9 100%)";
+  "linear-gradient(135deg, #F43F5E 0%, #D946EF 25%, #8B5CF6 50%, #3B82F6 75%, #14B8A6 100%)";
 
 export const COLORS = {
   ink: "#0B1220",
@@ -24,10 +24,13 @@ export const COLORS = {
   hairline: "#E2E8F0",
   page: "#FFFFFF",
   /** The pale band that separates alternating sections. */
-  wash: "#E8ECF5",
+  wash: "#F8FAFC",
+  rose: "#F43F5E",
+  fuchsia: "#D946EF",
+  violet: "#8B5CF6",
+  blue: "#3B82F6",
   teal: "#14B8A6",
-  blue: "#2563EB",
-  violet: "#6D28D9",
+  amber: "#F59E0B",
 } as const;
 
 /**

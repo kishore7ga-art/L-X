@@ -45,7 +45,7 @@ export function Story() {
 
             <h2 className="text-[clamp(2.2rem,4vw,3.2rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900 mb-6">
               Making every day is{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-600">
                 Friday
               </span>
             </h2>

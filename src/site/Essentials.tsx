@@ -30,7 +30,7 @@ export function Essentials() {
           <p className={`${EYEBROW} mb-3`}>YOUR COMPLETE WEBSITE DESIGN SOLUTION</p>
           <h2 className="text-[clamp(2.2rem,4vw,3.4rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
             All the essentials,{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-fuchsia-500 to-indigo-600">
               included
             </span>
           </h2>

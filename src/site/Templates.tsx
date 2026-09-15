@@ -21,7 +21,7 @@ export function Templates() {
               200+ PRE-MADE BEAUTIFUL TEMPLATES
             </p>
             <h2 className="text-[clamp(2.2rem,4.2vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-white">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-fuchsia-400 to-amber-300">
                 Top-notch
               </span>{" "}
               responsive
@@ -232,7 +232,7 @@ export function Split() {
           <h2 className="text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.035em] text-slate-900 min-h-[3rem] flex items-center justify-center">
             <span>
               One modern site,{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-fuchsia-500 to-purple-600">
                 every department
               </span>
             </span>

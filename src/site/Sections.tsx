@@ -29,14 +29,17 @@ const PILLARS = [
   {
     icon: SlidersHorizontal,
     title: "Visual Page Builder",
+    color: "bg-rose-50 text-rose-600 border-rose-100",
   },
   {
     icon: Layers,
     title: "One Plan. All Features",
+    color: "bg-purple-50 text-purple-600 border-purple-100",
   },
   {
     icon: Zap,
     title: "High Speed Performance",
+    color: "bg-amber-50 text-amber-600 border-amber-100",
   },
 ] as const;
 
@@ -46,10 +49,10 @@ export function Pillars() {
       <div className={CONTAINER}>
         <p className={`${EYEBROW} mb-6`}>WHY FINDFRIDAY STAND OUT OF THE CROWD</p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
-          {PILLARS.map(({ icon: Icon, title }) => (
+          {PILLARS.map(({ icon: Icon, title, color }) => (
             <div key={title} className="flex items-center gap-3.5">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 shadow-sm">
-                <Icon className="h-4 w-4" />
+              <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border shadow-sm ${color}`}>
+                <Icon className="h-5 w-5" />
               </span>
               <h3 className="text-[1.15rem] sm:text-[1.25rem] font-extrabold tracking-[-0.02em] text-slate-900">
                 {title}

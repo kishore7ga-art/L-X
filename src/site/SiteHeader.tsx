@@ -145,9 +145,10 @@ function Mark() {
     <svg viewBox="0 0 32 32" className="h-[26px] w-[26px]" aria-hidden="true">
       <defs>
         <linearGradient id="wx-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#14B8A6" />
-          <stop offset="55%" stopColor="#2563EB" />
-          <stop offset="100%" stopColor="#6D28D9" />
+          <stop offset="0%" stopColor="#F43F5E" />
+          <stop offset="30%" stopColor="#D946EF" />
+          <stop offset="65%" stopColor="#8B5CF6" />
+          <stop offset="100%" stopColor="#14B8A6" />
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="9" fill="url(#wx-mark)" />

@@ -26,21 +26,21 @@ const STEPS = [
     title: "Create a website",
     body: "Select from any of our industry-leading website templates that best fit your personal style and professional needs.",
     isCard: true,
-    numGradient: "from-cyan-400 via-blue-500 to-indigo-600",
+    numGradient: "from-rose-500 via-pink-500 to-fuchsia-600",
   },
   {
     n: "2",
     title: "Easy to customize",
     body: "Explore which tools you want to add—whether it's setting up an online store, booking services, or adding your favorite third-party extensions.",
     isCard: false,
-    numGradient: "from-teal-400 via-cyan-500 to-blue-500",
+    numGradient: "from-purple-600 via-indigo-600 to-blue-500",
   },
   {
     n: "3",
     title: "Solve! Too fast",
     body: "A site so easy your mum could build it... but just in case you need a hand, we offer tips and guides, 24/7 support, FAQs and a forum to chat with fellow website creators.",
     isCard: false,
-    numGradient: "from-blue-500 via-indigo-600 to-purple-600",
+    numGradient: "from-amber-500 via-orange-500 to-rose-500",
   },
 ] as const;
 
@@ -87,7 +87,7 @@ export function Steps() {
           <p className={EYEBROW}>HOW TO CREATE A WEBSITE</p>
           <h2 className="mt-3 text-[clamp(2.1rem,4.4vw,3.2rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-slate-900">
             Friday is for{" "}
-            <span className="bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-rose-500 via-fuchsia-500 via-purple-600 to-teal-500 bg-clip-text text-transparent">
               everyone
             </span>
           </h2>
