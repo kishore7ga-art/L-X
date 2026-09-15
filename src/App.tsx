@@ -1,6 +1,5 @@
 import React from "react";
 
-import { AnnouncementBar } from "@/site/AnnouncementBar";
 import { SiteHeader } from "@/site/SiteHeader";
 import { Hero } from "@/site/Hero";
 import { Pillars, Marquee, FinalCta } from "@/site/Sections";
@@ -48,7 +47,6 @@ import { SiteFooter } from "@/components/site-footer";
 export function App() {
   return (
     <main className="relative flex min-h-screen w-full flex-col overflow-x-clip bg-white font-['Plus_Jakarta_Sans',ui-sans-serif,system-ui,sans-serif] text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
-      <AnnouncementBar />
       <SiteHeader />
 
       {/* 1 — The claim, and the product mid-edit beside it */}
