@@ -6,10 +6,10 @@ import { ArrowRight, Play, CheckCircle2, XCircle, AlertTriangle, Lock, ShieldAle
 import { CONTAINER, COLORS, EYEBROW } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
 
-const CATEGORIES = ["Personal", "Business", "Portfolio", "Online Store", "Blog"] as const;
+const CATEGORIES = ["Universities", "Colleges", "Departments", "Research Labs", "Student Portals"] as const;
 
 export function Templates() {
-  const [activeTab, setActiveTab] = useState<string>("Personal");
+  const [activeTab, setActiveTab] = useState<string>("Universities");
 
   return (
     <section id="templates" className="relative z-30 bg-[#121620] text-white py-20 sm:py-28 overflow-hidden">
@@ -18,7 +18,7 @@ export function Templates() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-8 items-end justify-between">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-3">
-              200+ PRE-MADE BEAUTIFUL TEMPLATES
+              200+ PRE-MADE CAMPUS &amp; INSTITUTION TEMPLATES
             </p>
             <h2 className="text-[clamp(2.2rem,4.2vw,3.4rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-white">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-fuchsia-400 to-amber-300">
@@ -26,14 +26,14 @@ export function Templates() {
               </span>{" "}
               responsive
               <br />
-              website templates.
+              institution templates.
             </h2>
           </div>
 
           <p className="text-[0.9375rem] leading-relaxed text-slate-400 max-w-md">
-            Starting a yoga studio, restaurant, agency or selling gadgets online? We have the Friday theme for you.
-            With dozens of designs to choose from, you can always find the perfect responsive website template for
-            your needs. Easily customize images, content, and style to make it your own.
+            Building a university admissions portal, specialized department hub, research laboratory, or
+            campus alumni network? We have the template ready for you. Fully customizable, accessible,
+            and optimized for sub-second speeds.
           </p>
         </div>
 
@@ -59,16 +59,16 @@ export function Templates() {
 
         {/* ── 3 Showcase Cards Grid ──────────────────────────────────────── */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {/* Card 1: Developer */}
+          {/* Card 1: University Main Portal */}
           <div className="flex flex-col">
             <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-[#181D28] p-4 text-white shadow-2xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1">
               {/* Top micro bar */}
               <div className="flex items-center justify-between border-b border-white/10 pb-2.5 text-[9px] font-mono text-slate-400">
-                <span className="font-bold text-white">Daniel Stephan</span>
+                <span className="font-bold text-white">Oxford Division of Science</span>
                 <div className="flex items-center gap-2">
-                  <span>About</span>
-                  <span>Skills</span>
-                  <span>Work</span>
+                  <span>Faculty</span>
+                  <span>Admissions</span>
+                  <span>Research</span>
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </div>
               </div>
@@ -76,81 +76,81 @@ export function Templates() {
               {/* Content */}
               <div className="mt-3 flex items-center justify-between gap-2">
                 <div className="flex-1">
-                  <span className="inline-block rounded bg-teal-500/20 px-1.5 py-0.5 font-mono text-[7.5px] font-bold text-teal-300">
-                    // FULL-STACK DEV
+                  <span className="inline-block rounded bg-rose-500/20 px-1.5 py-0.5 font-mono text-[7.5px] font-bold text-rose-300">
+                    // ACCREDITED CAMPUS
                   </span>
                   <p className="mt-1 text-[13px] font-extrabold leading-tight tracking-tight text-white">
-                    Talk is cheap.
+                    Excellence in
                     <br />
-                    <span className="text-teal-400">Show me the code</span>
+                    <span className="text-rose-400">teaching &amp; research</span>
                   </p>
-                  <p className="mt-1 font-mono text-[7px] text-slate-400">&gt; git clone dev.io</p>
+                  <p className="mt-1 font-mono text-[7px] text-slate-400">&gt; admissions.oxford.edu</p>
                   <div className="mt-3 flex items-center gap-3 text-[9px] font-mono font-bold">
                     <span>
-                      <span className="text-white">12</span> <span className="text-slate-500">Repos</span>
+                      <span className="text-white">18</span> <span className="text-slate-500">Colleges</span>
                     </span>
                     <span>
-                      <span className="text-white">165</span> <span className="text-slate-500">Commits</span>
+                      <span className="text-white">42K</span> <span className="text-slate-500">Students</span>
                     </span>
                   </div>
                 </div>
 
-                {/* Developer photo with floating badges */}
-                <div className="relative h-28 w-24 shrink-0 overflow-hidden rounded-2xl">
+                {/* Campus photo with floating badges */}
+                <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl">
                   <img
-                    src="/showcase/dev-portrait.jpg"
-                    alt="Developer template preview"
+                    src="/showcase/oxford.jpg"
+                    alt="University portal template preview"
                     className="h-full w-full object-cover"
                   />
-                  <span className="absolute bottom-1 right-1 rounded bg-amber-400 px-1 py-0.5 font-mono text-[7px] font-black text-black shadow">
-                    JS
+                  <span className="absolute bottom-1 right-1 rounded bg-rose-500 px-1.5 py-0.5 font-mono text-[7px] font-black text-white shadow">
+                    EDU
                   </span>
-                  <span className="absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 font-bold text-[7px] text-white shadow">
-                    A
+                  <span className="absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-600 font-bold text-[7px] text-white shadow">
+                    ✓
                   </span>
                 </div>
               </div>
             </div>
 
             <div className="mt-4 px-1">
-              <h3 className="text-base font-extrabold text-white">Developer</h3>
-              <p className="text-xs text-slate-400">Banner Parallax, Before/After, Private Projects</p>
+              <h3 className="text-base font-extrabold text-white">University Main Portal</h3>
+              <p className="text-xs text-slate-400">Admissions Flow, Virtual Tour, Faculty Hub</p>
             </div>
           </div>
 
-          {/* Card 2: Freelancer */}
+          {/* Card 2: Admissions & Student Hub */}
           <div className="flex flex-col">
             <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-[#FAFAFC] p-4 text-slate-900 shadow-2xl ring-1 ring-slate-900/10 transition-all duration-300 hover:-translate-y-1">
               {/* Top micro bar */}
               <div className="flex items-center justify-between border-b border-slate-200 pb-2 text-[9px] text-slate-500">
-                <span className="font-extrabold text-slate-900">Bruno.design</span>
-                <div className="flex gap-2">
-                  <span>Work</span>
-                  <span>About</span>
-                  <span>Contact</span>
+                <span className="font-extrabold text-slate-900">Georgetown.edu</span>
+                <div className="flex gap-2 font-medium">
+                  <span>Programs</span>
+                  <span>Campus</span>
+                  <span>Apply</span>
                 </div>
               </div>
 
-              {/* Centered Designer copy */}
+              {/* Centered Campus copy */}
               <div className="mt-2 text-center">
-                <p className="text-[12px] font-extrabold text-slate-900">Bruno Erdtson</p>
-                <p className="text-[9px] font-semibold text-slate-500">UI/UX Interaction Designer</p>
-                <p className="text-[8px] text-slate-400">Based in Poland</p>
+                <p className="text-[12px] font-extrabold text-slate-900">Georgetown Admissions</p>
+                <p className="text-[9px] font-semibold text-slate-500">Undergraduate &amp; Graduate Studies</p>
+                <p className="text-[8px] text-slate-400">Fall 2026 Cohort</p>
 
                 <div className="mt-2 flex items-center justify-center gap-2">
-                  <span className="rounded-full bg-[#633ff8] px-3 py-1 text-[8.5px] font-bold text-white shadow-sm">
-                    EDIT
-                  </span>
                   <span className="rounded-full bg-slate-900 px-3 py-1 text-[8.5px] font-bold text-white shadow-sm">
-                    VIEW
+                    APPLY NOW
+                  </span>
+                  <span className="rounded-full bg-rose-500 px-3 py-1 text-[8.5px] font-bold text-white shadow-sm">
+                    VISIT
                   </span>
                 </div>
 
-                {/* Designer Portrait */}
-                <div className="mx-auto mt-2 h-14 w-14 overflow-hidden rounded-full ring-2 ring-slate-200">
+                {/* Campus Image */}
+                <div className="mx-auto mt-2 h-14 w-28 overflow-hidden rounded-xl ring-1 ring-slate-200 shadow-sm">
                   <img
-                    src="/showcase/freelancer-portrait.jpg"
-                    alt="Freelancer template preview"
+                    src="/showcase/georgetown.jpg"
+                    alt="Admissions template preview"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -158,47 +158,47 @@ export function Templates() {
             </div>
 
             <div className="mt-4 px-1">
-              <h3 className="text-base font-extrabold text-white">Freelancer</h3>
-              <p className="text-xs text-slate-400">Instagram, Dribbble Module, Portfolio Grid</p>
+              <h3 className="text-base font-extrabold text-white">Admissions &amp; Student Hub</h3>
+              <p className="text-xs text-slate-400">Application Pipeline, Program Catalog, Campus Life</p>
             </div>
           </div>
 
-          {/* Card 3: Personal Coach */}
+          {/* Card 3: Research & Department Portal */}
           <div className="flex flex-col">
             <div className="group relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-white p-4 text-slate-900 shadow-2xl ring-1 ring-slate-900/10 transition-all duration-300 hover:-translate-y-1">
               {/* Top micro bar */}
               <div className="flex items-center justify-between border-b border-slate-100 pb-2 text-[9px] text-slate-500">
-                <span className="font-bold text-slate-900">Andy Grammer</span>
-                <div className="flex gap-2 text-[8px]">
-                  <span>Events</span>
-                  <span>Coaching</span>
-                  <span>Podcast</span>
+                <span className="font-bold text-slate-900">Chicago Institute</span>
+                <div className="flex gap-2 text-[8px] font-medium">
+                  <span>Labs</span>
+                  <span>Publications</span>
+                  <span>Grants</span>
                 </div>
               </div>
 
-              {/* Hero content with speaker photo */}
+              {/* Hero content with research preview */}
               <div className="mt-2.5 flex items-center justify-between gap-2">
                 <div className="flex-1">
                   <p className="text-[13px] font-black leading-tight tracking-tight text-slate-900">
-                    Change
+                    Advancing
                     <br />
-                    <span className="text-amber-500">starts within</span>
+                    <span className="text-rose-500">global knowledge</span>
                     <br />
-                    you
+                    daily
                   </p>
                   <div className="mt-2 flex items-center gap-1.5 text-[8px] font-bold text-slate-600">
-                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow">
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-slate-900 text-white shadow">
                       <Play className="h-2 w-2 fill-current" />
                     </span>
-                    <span>Watch Video</span>
+                    <span>Watch Keynote</span>
                   </div>
                 </div>
 
-                {/* Speaker on stage photo */}
-                <div className="h-28 w-24 shrink-0 overflow-hidden rounded-2xl">
+                {/* Research Campus Photo */}
+                <div className="h-28 w-28 shrink-0 overflow-hidden rounded-2xl shadow-md">
                   <img
-                    src="/showcase/coach-portrait.jpg"
-                    alt="Coach template preview"
+                    src="/showcase/uchicago.jpg"
+                    alt="Research institution template preview"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -206,8 +206,8 @@ export function Templates() {
             </div>
 
             <div className="mt-4 px-1">
-              <h3 className="text-base font-extrabold text-white">Personal Coach</h3>
-              <p className="text-xs text-slate-400">Digital Download, Booking Event, Video Slider</p>
+              <h3 className="text-base font-extrabold text-white">Research &amp; Department Hub</h3>
+              <p className="text-xs text-slate-400">Laboratory Index, Grant Showcase, Seminar Calendar</p>
             </div>
           </div>
         </div>
