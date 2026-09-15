@@ -46,7 +46,7 @@ export function SiteHeader() {
         borderBottom: `1px solid ${solid ? COLORS.hairline : "transparent"}`,
       }}
     >
-      <div className={`${CONTAINER} flex h-[72px] items-center justify-between gap-6`}>
+      <div className={`${CONTAINER} flex h-[64px] sm:h-[68px] items-center justify-between gap-6`}>
         <a href="#top" className="flex shrink-0 items-center gap-2.5 no-underline">
           <Mark />
           <span className="text-[17px] font-black uppercase tracking-[0.08em] text-slate-900">
