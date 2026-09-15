@@ -7,7 +7,6 @@ import { Pillars, Marquee, FinalCta } from "@/site/Sections";
 import { Steps } from "@/site/Steps";
 import { Templates, Split } from "@/site/Templates";
 import { Essentials } from "@/site/Essentials";
-import { Pricing } from "@/site/Pricing";
 import { Story } from "@/site/Story";
 import { Blog } from "@/site/Blog";
 
@@ -74,9 +73,6 @@ export function App() {
 
       {/* 6.5 — All the essentials, included */}
       <Essentials />
-
-      {/* 7 — What it costs */}
-      <Pricing />
 
       {/* 7.5 — Making every day is Friday / Story */}
       <Story />
