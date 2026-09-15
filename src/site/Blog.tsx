@@ -1,56 +1,110 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import gsap from "gsap";
 
-import { CONTAINER } from "./tokens";
+import { CONTAINER, REDUCED_MOTION } from "./tokens";
 import { SIGN_UP_URL } from "@/env";
 
 const POSTS = [
   {
-    image: "/showcase/blog-layout.jpg",
-    category: "WEB DESIGN",
-    date: "APR 25, 2024",
-    title: "How to easily start a Blog and monetize it in 2023",
+    image: "/showcase/college-hero.jpg",
+    category: "CAMPUS DESIGN",
+    date: "SEP 12, 2026",
+    title: "How modern universities build high-converting admissions sites",
     excerpt:
-      "If you're wondering how to create a blog, you've come to the right place. As a blogger myself, I can [...]",
-    featured: true,
+      "Explore the key visual design frameworks that drive student enrollment, retention, and campus engagement across all faculties.",
+    badgeClass: "bg-rose-50 text-rose-700 border border-rose-200/60",
   },
   {
-    image: "/showcase/blog-ai.jpg",
-    category: "UPDATES",
-    date: "APR 15, 2024",
-    title: "FindFriday with power of AI",
+    image: "/showcase/oxford.jpg",
+    category: "PERFORMANCE",
+    date: "AUG 28, 2026",
+    title: "Achieving 99+ Core Web Vitals on multi-department institution portals",
     excerpt:
-      "Almost every conversation in technology these days is about AI. And like ChatGPT [...]",
-    featured: false,
+      "Why sub-second page loads and automated global edge caching are vital for prospective students, faculty, and alumni.",
+    badgeClass: "bg-purple-50 text-purple-700 border border-purple-200/60",
   },
   {
-    image: "/showcase/blog-speed.jpg",
-    category: "WEB DESIGN",
-    date: "MAR 27, 2024",
-    title: "Why Page Speed is the key to your website's speed optimization (and how to improve it)",
+    image: "/showcase/uchicago.jpg",
+    category: "NO-CODE TIPS",
+    date: "AUG 14, 2026",
+    title: "Empowering non-technical staff to launch pages in minutes",
     excerpt:
-      "If there's one place first impressions are absolutely critical, it's your website�and we're not just [...]",
-    featured: false,
+      "How visual drag-and-drop website builders eliminate IT ticket backlogs and accelerate department announcements.",
+    badgeClass: "bg-amber-50 text-amber-800 border border-amber-200/60",
   },
   {
-    image: "/showcase/blog-font.jpg",
-    category: "INSPIRATION",
-    date: "MAR 19, 2024",
-    title: "100 Best free fonts for Designers in 2023",
+    image: "/showcase/birmingham.jpg",
+    category: "SEO & ACCESSIBILITY",
+    date: "JUL 30, 2026",
+    title: "WCAG 2.1 compliance and built-in SEO for educational institutions",
     excerpt:
-      "Typography is currently playing a central role in web design, with progressive improvements [...]",
-    featured: false,
+      "A complete checklist for meeting accessibility standards while organically ranking on Google search for academic programs.",
+    badgeClass: "bg-teal-50 text-teal-800 border border-teal-200/60",
+  },
+  {
+    image: "/showcase/penn.jpg",
+    category: "CASE STUDY",
+    date: "JUL 18, 2026",
+    title: "How 50+ college departments unified their brand under one system",
+    excerpt:
+      "Case study on streamlining design systems, typography tokens, and global navigation across diverse academic schools.",
+    badgeClass: "bg-blue-50 text-blue-700 border border-blue-200/60",
+  },
+  {
+    image: "/showcase/georgetown.jpg",
+    category: "SECURITY & SSL",
+    date: "JUN 29, 2026",
+    title: "Enterprise-grade zero-trust SSL and custom domain management",
+    excerpt:
+      "Securing campus digital assets with automated SSL certificate renewal, DDoS mitigation, and sub-second edge routing.",
+    badgeClass: "bg-emerald-50 text-emerald-800 border border-emerald-200/60",
   },
 ];
 
 export function Blog() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
+
+  useEffect(() => {
+    const node = trackRef.current;
+    if (!node) return;
+    if (window.matchMedia(REDUCED_MOTION).matches) return;
+
+    // Auto scroll right infinitely (-50% to 0%)
+    const tween = gsap.fromTo(
+      node,
+      { xPercent: -50 },
+      {
+        xPercent: 0,
+        duration: 38,
+        ease: "none",
+        repeat: -1,
+      }
+    );
+
+    tweenRef.current = tween;
+
+    return () => {
+      tween.kill();
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    tweenRef.current?.pause();
+  };
+
+  const handleMouseLeave = () => {
+    tweenRef.current?.play();
+  };
+
   return (
-    <section id="blog" className="relative z-30 w-full bg-white py-20 sm:py-28 overflow-hidden border-t border-slate-100">
+    <section id="blog" className="relative z-30 w-full bg-[#FAFAFC] py-20 sm:py-28 overflow-hidden border-t border-slate-100">
       <div className={CONTAINER}>
         {/* -- Header ------------------------------------------------------ */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
             <p className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-2">
               RESOURCES, INSPIRATION AND TIPS
@@ -71,54 +125,63 @@ export function Blog() {
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
+      </div>
 
-        {/* -- 4-Card Grid -------------------------------------------------- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
-          {POSTS.map((post, idx) => (
+      {/* -- Auto Scroll Right Infinite Marquee Track ------------------------ */}
+      <div
+        className="relative w-full overflow-hidden py-4"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Soft edge blur masks */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#FAFAFC] to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#FAFAFC] to-transparent z-20" />
+
+        <div ref={trackRef} className="flex w-max gap-6 sm:gap-7 items-stretch">
+          {/* Render two duplicated sets for seamless -50% to 0% looping */}
+          {[...POSTS, ...POSTS].map((post, idx) => (
             <article
               key={idx}
-              className="group flex flex-col justify-between rounded-3xl bg-white transition-all duration-300 hover:-translate-y-1"
+              className="group flex flex-col justify-between w-[310px] sm:w-[350px] md:w-[380px] shrink-0 rounded-3xl bg-white p-5 border border-slate-200/70 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-300 hover:-translate-y-1.5"
             >
               <div>
                 {/* Card thumbnail */}
-                <div className="aspect-[16/11] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
+                <div className="aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-inner">
                   <img
                     src={post.image}
                     alt={post.title}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
                 {/* Category & Date */}
-                <div className="mt-4 flex items-center gap-1.5 text-[9.5px] font-bold uppercase tracking-wider text-slate-400">
-                  <span>{post.category}</span>
-                  <span>/</span>
-                  <span>{post.date}</span>
+                <div className="mt-4 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider">
+                  <span className={`px-2.5 py-0.5 rounded-full ${post.badgeClass}`}>
+                    {post.category}
+                  </span>
+                  <span className="text-slate-400 font-medium">{post.date}</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-2 text-[14.5px] font-extrabold leading-snug text-slate-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="mt-3 text-[15px] sm:text-[16px] font-extrabold leading-snug text-slate-900 group-hover:text-purple-600 transition-colors">
                   {post.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="mt-2 text-[12px] leading-relaxed text-slate-500 line-clamp-2">
+                <p className="mt-2 text-[12.5px] leading-relaxed text-slate-500 line-clamp-2 font-normal">
                   {post.excerpt}
                 </p>
               </div>
 
               {/* Continue button */}
-              <div className="mt-5">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
                 <a
                   href={SIGN_UP_URL}
-                  className={
-                    "inline-flex items-center rounded-full px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all duration-300 " +
-                    (post.featured
-                      ? "bg-slate-900 text-white hover:bg-slate-800 shadow"
-                      : "border border-slate-200 text-slate-700 hover:bg-slate-100")
-                  }
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 group-hover:text-purple-600 transition-colors"
                 >
-                  Continue
+                  Read article
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </div>
             </article>
@@ -128,3 +191,5 @@ export function Blog() {
     </section>
   );
 }
+
+export default Blog;
