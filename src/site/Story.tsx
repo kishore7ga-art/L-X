@@ -40,36 +40,36 @@ export function Story() {
           {/* -- Right: Story Content --------------------------------------- */}
           <div className="flex flex-col items-start">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400 mb-3">
-              WE ARE WEBXITE
+              BUILT FOR MODERN CAMPUSES
             </p>
 
             <h2 className="text-[clamp(2.2rem,4vw,3.2rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900 mb-6">
-              Making every day is{" "}
+              Empowering institutions to build their{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-600">
-                Friday
+                digital presence
               </span>
             </h2>
 
-            <p className="text-xs sm:text-[13px] leading-relaxed text-slate-600 mb-4 font-normal">
-              How many people do you know who have abandoned their website project halfway through?
-              From confusing jargon to upselling extras and platforms that weren&apos;t quite as easy
-              as they looked... there&apos;s a lot to put you off. So we decided to say no to the
-              Monday blues of website builders and create a solution with all the Friday feels. One
-              price, great to use, and with an amazing final product.
+            <p className="text-xs sm:text-[13.5px] leading-relaxed text-slate-600 mb-4 font-normal">
+              Academic institutions have long struggled with outdated, rigid legacy CMS platforms
+              that require complex IT backlogs just to update a departmental syllabus, publish campus
+              news, or launch admissions landing pages. We built WebXite to give admissions teams,
+              faculty leaders, and campus administrators total creative freedom without writing a single
+              line of code.
             </p>
 
-            <p className="text-xs sm:text-[13px] leading-relaxed text-slate-600 mb-8 font-normal">
-              We&apos;re a team of programmers and developers who wanted to do things differently.
-              When it comes to creating your own website, our team decided to make things simple.
-              Instead of spending hours painstakingly designing and building your site, we wanted to
-              bring back the joy and creativity involved in getting your voice heard online.
+            <p className="text-xs sm:text-[13.5px] leading-relaxed text-slate-600 mb-8 font-normal">
+              From university-wide portals to specialized department hubs, research labs, and student
+              event showcases, WebXite combines enterprise-grade SSL security, 99.99% uptime, and
+              sub-second edge performance with intuitive visual editing. We believe every campus deserves
+              a fast, world-class website that inspires students, faculty, and alumni.
             </p>
 
             <a
               href={SIGN_UP_URL}
               className="group inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-xs font-extrabold uppercase tracking-wider text-slate-800 shadow-sm transition-all duration-300 hover:bg-slate-50 hover:shadow-md hover:-translate-y-0.5"
             >
-              Explore our story
+              Explore our platform
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
