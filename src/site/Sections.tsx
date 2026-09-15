@@ -28,17 +28,17 @@ import { Layers, SlidersHorizontal, Zap } from "lucide-react";
 const PILLARS = [
   {
     icon: SlidersHorizontal,
-    title: "Visual Page Builder",
+    title: "Visual Department Builder",
     color: "bg-rose-50 text-rose-600 border-rose-100",
   },
   {
     icon: Layers,
-    title: "One Plan. All Features",
+    title: "All-Inclusive Campus Plan",
     color: "bg-purple-50 text-purple-600 border-purple-100",
   },
   {
     icon: Zap,
-    title: "High Speed Performance",
+    title: "Sub-Second Edge Speed",
     color: "bg-amber-50 text-amber-600 border-amber-100",
   },
 ] as const;
@@ -47,7 +47,7 @@ export function Pillars() {
   return (
     <section className="border-t border-slate-200 bg-white py-10 sm:py-12">
       <div className={CONTAINER}>
-        <p className={`${EYEBROW} mb-6`}>WHY FINDFRIDAY STAND OUT OF THE CROWD</p>
+        <p className={`${EYEBROW} mb-6`}>WHY WEBXITE STANDS OUT FOR INSTITUTIONS</p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
           {PILLARS.map(({ icon: Icon, title, color }) => (
             <div key={title} className="flex items-center gap-3.5">
@@ -80,7 +80,7 @@ export function Marquee() {
 
     const tween = gsap.to(node, {
       xPercent: -50,
-      duration: 22,
+      duration: 25,
       ease: "none",
       repeat: -1,
     });
@@ -89,7 +89,7 @@ export function Marquee() {
     };
   }, []);
 
-  const line = "Bring you that Friday feeling";
+  const line = "Built for modern colleges, schools & academic institutions";
 
   return (
     <div className="relative z-20 overflow-hidden py-6 sm:py-7 shadow-sm" style={{ background: BRAND_GRADIENT }}>
@@ -99,7 +99,7 @@ export function Marquee() {
             {[0, 1, 2, 3].map((i) => (
               <span
                 key={i}
-                className="flex items-center whitespace-nowrap px-6 text-[1.3rem] font-bold tracking-[-0.01em] text-white"
+                className="flex items-center whitespace-nowrap px-6 text-[1.25rem] sm:text-[1.35rem] font-bold tracking-[-0.01em] text-white"
               >
                 <span>{line}</span>
                 <span className="ml-12 inline-block h-2 w-2 rounded-full bg-white/90" />

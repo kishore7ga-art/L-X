@@ -23,22 +23,22 @@ import { SIGN_UP_URL } from "@/env";
 const STEPS = [
   {
     n: "1",
-    title: "Create a website",
-    body: "Select from any of our industry-leading website templates that best fit your personal style and professional needs.",
+    title: "Select an institution template",
+    body: "Choose from our library of responsive, WCAG-compliant college, university, and academic department layouts.",
     isCard: true,
     numGradient: "from-rose-500 via-pink-500 to-fuchsia-600",
   },
   {
     n: "2",
-    title: "Easy to customize",
-    body: "Explore which tools you want to add—whether it's setting up an online store, booking services, or adding your favorite third-party extensions.",
+    title: "Customize without code",
+    body: "Easily integrate faculty directories, course finders, admissions applications, and campus event feeds with visual drag-and-drop.",
     isCard: false,
     numGradient: "from-purple-600 via-indigo-600 to-blue-500",
   },
   {
     n: "3",
-    title: "Solve! Too fast",
-    body: "A site so easy your mum could build it... but just in case you need a hand, we offer tips and guides, 24/7 support, FAQs and a forum to chat with fellow website creators.",
+    title: "Deploy to your .EDU domain",
+    body: "Launch instantly on multi-region cloud edge infrastructure with automated SSL certificates, sub-second speed, and 99.99% uptime.",
     isCard: false,
     numGradient: "from-amber-500 via-orange-500 to-rose-500",
   },
@@ -84,11 +84,11 @@ export function Steps() {
         <BrowserMock />
 
         <div ref={wrap} className="pb-14 sm:pb-20 lg:pb-28">
-          <p className={EYEBROW}>HOW TO CREATE A WEBSITE</p>
+          <p className={EYEBROW}>HOW TO LAUNCH YOUR CAMPUS WEBSITE</p>
           <h2 className="mt-3 text-[clamp(2.1rem,4.4vw,3.2rem)] font-extrabold leading-[1.08] tracking-[-0.035em] text-slate-900">
-            Friday is for{" "}
+            Intuitive visual design for{" "}
             <span className="bg-gradient-to-r from-rose-500 via-fuchsia-500 via-purple-600 to-teal-500 bg-clip-text text-transparent">
-              everyone
+              institutions
             </span>
           </h2>
 

@@ -12,24 +12,24 @@ interface FooterColumn {
 
 const FOOTER_COLUMNS: FooterColumn[] = [
   {
-    title: "WEBXITE",
-    links: ["Official website", "Contact", "Catalogue"],
+    title: "PLATFORM",
+    links: ["Visual Builder", "Campus Templates", "Admissions Hub", "Custom .EDU Domains"],
   },
   {
-    title: "PARTNERS",
-    links: ["Connectsport OU", "Frederik Sletting J.", "WebXite AS"],
+    title: "SOLUTIONS",
+    links: ["Universities", "Colleges", "Academic Departments", "Research Labs"],
   },
   {
-    title: "CERTIFICATES",
-    links: ["2-STAR, ITF", "CAT-1 SLOW, ITF"],
+    title: "COMPLIANCE",
+    links: ["FERPA Ready", "WCAG 2.1 AA", "GDPR Compliant", "256-Bit SSL"],
+  },
+  {
+    title: "RESOURCES",
+    links: ["Documentation", "Campus Blog", "Help Center", "Community Forum"],
   },
   {
     title: "FOLLOW US",
-    links: ["Facebook", "Instagram", "Youtube"],
-  },
-  {
-    title: "CITIES",
-    links: ["Oslo, NO", "Bærum, NO", "Tjøme, NO", "Copenhagen, DK"],
+    links: ["LinkedIn", "Twitter / X", "YouTube", "GitHub"],
   },
 ];
 
@@ -63,69 +63,16 @@ const BrandMark = () => (
 );
 
 /* ------------------------------------------------------------------ */
-/*  ITF circular certification badge                                   */
+/*  Certification Badge                                                */
 /* ------------------------------------------------------------------ */
 
-const ItfBadge = ({ label }: { label: string }) => {
-  const rawId = useId();
-  const arcId = `itf-arc-${rawId.replace(/:/g, "")}`;
-
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      className="w-10 h-10 shrink-0 text-[#666] transition-colors duration-300 hover:text-rose-400"
-      aria-label={`ITF ${label} certification`}
-      role="img"
-    >
-      <defs>
-        {/* Upper arc carrying the curved caption */}
-        <path id={arcId} d="M 32 32 m -23 0 a 23 23 0 1 1 46 0" fill="none" />
-      </defs>
-
-      <circle
-        cx="32"
-        cy="32"
-        r="30"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.25"
-      />
-      <circle
-        cx="32"
-        cy="32"
-        r="24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.75"
-        opacity="0.5"
-      />
-
-      <text
-        fill="currentColor"
-        fontSize="7"
-        fontWeight="700"
-        letterSpacing="1.1"
-        textAnchor="middle"
-      >
-        <textPath href={`#${arcId}`} startOffset="50%">
-          {label}
-        </textPath>
-      </text>
-
-      <text
-        x="32"
-        y="40"
-        fill="currentColor"
-        fontSize="16"
-        fontWeight="800"
-        letterSpacing="0.5"
-        textAnchor="middle"
-      >
-        ITF
-      </text>
-    </svg>
-  );
-};
+const ComplianceBadge = ({ label, code }: { label: string; code: string }) => (
+  <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold text-slate-300 transition-colors hover:border-rose-400 hover:text-white">
+    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+    <span>{label}</span>
+    <span className="text-[9px] text-slate-500">{code}</span>
+  </div>
+);
 
 /* ------------------------------------------------------------------ */
 /*  Giant interactive striped watermark                                */
@@ -314,7 +261,7 @@ export function SiteFooter() {
 
         {/* ---------- 4. Bottom bar ---------- */}
         <div className="flex flex-col items-center justify-between gap-6 border-t border-[#1c1c1c] py-8 text-xs text-[#555] sm:flex-row">
-          <span className="order-2 sm:order-1">Provided by District12</span>
+          <span className="order-2 sm:order-1">Empowering 200+ Campus Portals</span>
 
           <div className="order-1 flex items-center gap-6 sm:order-2">
             <span>{`${COPYRIGHT} 2026 WebXite${TRADEMARK}`}</span>
@@ -324,8 +271,8 @@ export function SiteFooter() {
           </div>
 
           <div className="order-3 flex items-center gap-3">
-            <ItfBadge label="2-STAR" />
-            <ItfBadge label="CAT-1 SLOW" />
+            <ComplianceBadge label="FERPA" code="COMPLIANT" />
+            <ComplianceBadge label="WCAG 2.1" code="AA" />
           </div>
         </div>
       </div>

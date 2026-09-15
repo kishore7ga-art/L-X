@@ -110,7 +110,7 @@ export function Blog() {
               RESOURCES, INSPIRATION AND TIPS
             </p>
             <h2 className="text-[clamp(2.2rem,4vw,3.2rem)] font-extrabold leading-[1.12] tracking-[-0.035em] text-slate-900">
-              FindFriday{" "}
+              WebXite Campus{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-600">
                 Blog
               </span>

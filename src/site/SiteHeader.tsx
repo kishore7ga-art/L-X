@@ -20,10 +20,11 @@ import { SIGN_IN_URL, SIGN_UP_URL } from "@/env";
  */
 
 const NAV = [
-  { label: "PRODUCTS", href: "#features", hasChevron: true },
+  { label: "FEATURES", href: "#features", hasChevron: false },
   { label: "TEMPLATES", href: "#templates", hasChevron: false },
-  { label: "RESOURCES", href: "#how", hasChevron: true },
-  { label: "PRICING", href: "#pricing", hasChevron: false },
+  { label: "ESSENTIALS", href: "#essentials", hasChevron: false },
+  { label: "BLOG", href: "#blog", hasChevron: false },
+  { label: "FAQ", href: "#faq", hasChevron: false },
 ] as const;
 
 export function SiteHeader() {
