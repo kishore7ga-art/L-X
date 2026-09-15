@@ -73,8 +73,9 @@ export function Hero() {
       <div className={`${CONTAINER} relative grid items-center gap-12 lg:grid-cols-[1.05fr_1.15fr] lg:gap-8 xl:gap-14`}>
         {/* ── Left Column: Headline & Value Prop ───────────────────────────── */}
         <div className="relative z-10">
-          <h1 className="text-[clamp(2.6rem,4.6vw,4.5rem)] font-extrabold leading-[1.14] tracking-[-0.04em] text-slate-950">
-            <span className="block mb-1.5">Build beautiful websites in</span>
+          <h1 className="text-[clamp(2.5rem,4.4vw,4.3rem)] font-extrabold leading-[1.14] tracking-[-0.04em] text-slate-950">
+            <span className="block mb-1">Build beautiful</span>
+            <span className="block mb-1.5">websites for institutions in</span>
 
             <span className="inline-block mb-1.5">
               <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-7 py-0.5 text-white shadow-lg">
@@ -91,7 +92,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-relaxed text-slate-600">
-            Fast, high-converting visual design for campus and brand sites.
+            Fast, high-converting visual design for campus and institution sites.
           </p>
 
           <a
