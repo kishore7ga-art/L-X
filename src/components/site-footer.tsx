@@ -41,13 +41,24 @@ const COPYRIGHT = "©";
 /* ------------------------------------------------------------------ */
 
 const BrandMark = () => (
-  <svg
-    viewBox="0 0 32 32"
-    className="w-[26px] h-[26px] shrink-0"
-    aria-hidden="true"
-  >
-    <polygon points="12,4 22,4 14,28 4,28" fill="#ffffff" />
-    <polygon points="24,4 30,4 22,28 16,28" fill="#ffffff" opacity="0.55" />
+  <svg viewBox="0 0 32 32" className="h-[26px] w-[26px] shrink-0" aria-hidden="true">
+    <defs>
+      <linearGradient id="wx-footer-mark" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#F43F5E" />
+        <stop offset="30%" stopColor="#D946EF" />
+        <stop offset="65%" stopColor="#8B5CF6" />
+        <stop offset="100%" stopColor="#14B8A6" />
+      </linearGradient>
+    </defs>
+    <rect width="32" height="32" rx="9" fill="url(#wx-footer-mark)" />
+    <path
+      d="M8.5 11 L12.4 21 L16 13.6 L19.6 21 L23.5 11"
+      fill="none"
+      stroke="#fff"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -62,7 +73,7 @@ const ItfBadge = ({ label }: { label: string }) => {
   return (
     <svg
       viewBox="0 0 64 64"
-      className="w-10 h-10 shrink-0 text-[#666] transition-colors duration-300 hover:text-white"
+      className="w-10 h-10 shrink-0 text-[#666] transition-colors duration-300 hover:text-rose-400"
       aria-label={`ITF ${label} certification`}
       role="img"
     >
@@ -121,10 +132,10 @@ const ItfBadge = ({ label }: { label: string }) => {
 /* ------------------------------------------------------------------ */
 
 const STRIPES_BASE =
-  "repeating-linear-gradient(45deg, #2a2a2a 0px, #2a2a2a 2px, #0f0f0f 2px, #0f0f0f 7px)";
+  "repeating-linear-gradient(45deg, #24242e 0px, #24242e 2px, #0d0d12 2px, #0d0d12 7px)";
 
 const STRIPES_BRIGHT =
-  "repeating-linear-gradient(45deg, #ffffff 0px, #ffffff 2px, #4a4a4a 2px, #4a4a4a 7px)";
+  "linear-gradient(90deg, #F43F5E 0%, #D946EF 25%, #8B5CF6 50%, #3B82F6 75%, #14B8A6 100%)";
 
 const WATERMARK_WORD = "WEBXITE";
 
@@ -199,13 +210,13 @@ const Watermark = () => {
         <MarqueeTrack stripes={STRIPES_BRIGHT} />
       </div>
 
-      {/* Custom circular cursor */}
+      {/* Custom circular cursor with colorful glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute rounded-full border border-white/70 transition-opacity duration-200"
+        className="pointer-events-none absolute rounded-full border border-rose-400/90 shadow-[0_0_20px_rgba(244,63,94,0.75)] transition-opacity duration-200"
         style={{
-          width: 34,
-          height: 34,
+          width: 38,
+          height: 38,
           left: pos.x,
           top: pos.y,
           transform: "translate(-50%, -50%)",
@@ -222,17 +233,22 @@ const Watermark = () => {
 
 export function SiteFooter() {
   return (
-    <footer className="relative z-20 w-full overflow-hidden bg-[#0a0a0a] text-white antialiased font-['Inter','Helvetica_Neue',Helvetica,Arial,sans-serif]">
+    <footer
+      className="relative z-20 w-full overflow-hidden bg-[#0a0a0a] text-white antialiased font-['Inter','Helvetica_Neue',Helvetica,Arial,sans-serif]"
+      style={{
+        background: "radial-gradient(ellipse at 50% 100%, rgba(244,63,94,0.08) 0%, rgba(139,92,246,0.06) 40%, #0a0a0a 80%)",
+      }}
+    >
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:px-16">
         {/* ---------- 1. Contact ---------- */}
         <div className="grid grid-cols-1 gap-10 pt-24 sm:pt-32 md:grid-cols-2 md:gap-16 lg:pt-40">
           <div className="flex flex-col">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#888]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-400/90">
               Get in touch
             </span>
             <a
               href="mailto:info@webxite.com"
-              className="mt-4 inline-block w-fit text-2xl font-normal tracking-[-0.01em] text-white transition-opacity duration-300 hover:opacity-60 sm:text-3xl"
+              className="mt-4 inline-block w-fit text-2xl font-normal tracking-[-0.01em] text-white transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-rose-400 hover:via-fuchsia-400 hover:to-teal-400 sm:text-3xl"
             >
               info@webxite.com
             </a>
@@ -240,12 +256,12 @@ export function SiteFooter() {
           </div>
 
           <div className="flex flex-col">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#888]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-400/90">
               Media
             </span>
             <a
               href="mailto:press@webxite.com"
-              className="mt-4 inline-block w-fit text-2xl font-normal tracking-[-0.01em] text-white transition-opacity duration-300 hover:opacity-60 sm:text-3xl"
+              className="mt-4 inline-block w-fit text-2xl font-normal tracking-[-0.01em] text-white transition-all duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-rose-400 hover:via-fuchsia-400 hover:to-teal-400 sm:text-3xl"
             >
               press@webxite.com
             </a>
@@ -268,7 +284,7 @@ export function SiteFooter() {
               <BrandMark />
               <span className="text-lg font-bold tracking-[-0.02em] text-white">
                 WebXite
-                <sup className="ml-0.5 align-super text-[9px] font-medium text-[#888]">
+                <sup className="ml-0.5 align-super text-[9px] font-medium text-rose-400/80">
                   {TRADEMARK}
                 </sup>
               </span>
@@ -285,7 +301,7 @@ export function SiteFooter() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-[13px] leading-relaxed text-[#888] transition-colors duration-200 hover:text-white"
+                      className="text-[13px] leading-relaxed text-[#888] transition-colors duration-200 hover:text-rose-300"
                     >
                       {link}
                     </a>
@@ -302,7 +318,7 @@ export function SiteFooter() {
 
           <div className="order-1 flex items-center gap-6 sm:order-2">
             <span>{`${COPYRIGHT} 2026 WebXite${TRADEMARK}`}</span>
-            <a href="#" className="transition-colors duration-200 hover:text-white">
+            <a href="#" className="transition-colors duration-200 hover:text-rose-300">
               Official website
             </a>
           </div>
